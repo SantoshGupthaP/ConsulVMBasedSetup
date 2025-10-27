@@ -1,12 +1,12 @@
 variable "region" {
   description = "AWS region"
-   default     = "us-east-2"
+   default     = "ap-south-1"
 }
 
 variable "consul_instance_type" {
   description = "EC2 instance type"
-  default     = "m6i.4xlarge"
-  # default     = "m5.2xlarge"
+  # default     = "m6i.4xlarge"
+  default     = "m5.2xlarge"
 }
 
 variable "instance_type" {

@@ -64,7 +64,6 @@ tls {
     }
 }
 
-# Add telemetry configuration for metrics collection
 telemetry {
   prometheus_retention_time = "60s"
   disable_hostname = false

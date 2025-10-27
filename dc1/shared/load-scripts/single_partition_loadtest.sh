@@ -76,7 +76,7 @@ register_service() {
       --argjson meta_obj "$meta_object_json" \
       '{
         "Datacenter": "dc1",
-        "Node": $node_name,
+        "Node": $target_ip,
         "ID": $reg_uuid,
         "Address": $target_ip,
         "NodeMeta": { "external-node": "true", "external-probe": "false" },
@@ -127,12 +127,13 @@ end_index=$((START_INDEX + TOTAL_PARTITIONS - 1))
 created_count=0
 partition_name="global"
 
-for (( n=1; n<=10; n++ )); do
+for (( n=1; n<=500; n++ )); do
       namespace_name="ns-${n}"
       if create_namespace "$partition_name" "$namespace_name"; then
         for (( s=1; s<=10; s++ )); do
           service_id="workload-${partition_name}-${namespace_name}-${s}"
-          node_name="node-${service_id}"
+          # node_name="node-${service_id}"
+          # node_name="node-${service_id}"
           service_base_name="workload-${s}"
           register_service "$partition_name" "$namespace_name" "$service_id" "$node_name" "$service_base_name"
         done

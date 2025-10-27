@@ -3,7 +3,6 @@ bind_addr = "0.0.0.0"
 client_addr = "0.0.0.0"
 advertise_addr = "IP_ADDRESS"
 retry_join = ["RETRY_JOIN"]
-#retry_join_wan = ["WAN_RETRY_JOIN"]
 datacenter = "dc1"
 
 acl {

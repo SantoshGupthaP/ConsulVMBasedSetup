@@ -84,12 +84,23 @@ resource "aws_instance" "prometheus" {
       - job_name: 'Consul'
         static_configs:
           - targets: ['localhost:9107']
-      - job_name: 'Consul-Server-Node'
+      - job_name: 'Consul-Server0-Node'
+        # scrape_offset: 0s, use rule_query_offset instead
         static_configs:
           - targets: [
-              %{ for i in range(length(aws_instance.consul)) }
-                "${aws_instance.consul[i].private_ip}:9100"${i < length(aws_instance.consul) - 1 ? "," : ""}
-              %{ endfor }
+              "${aws_instance.consul[0].private_ip}:9100"
+            ]
+      - job_name: 'Consul-Server1-Node'
+        # scrape_offset: 5s
+        static_configs:
+          - targets: [
+              "${aws_instance.consul[1].private_ip}:9100"
+            ]
+      - job_name: 'Consul-Server2-Node'
+        # scrape_offset: 10s
+        static_configs:
+          - targets: [
+              "${aws_instance.consul[2].private_ip}:9100"
             ]
       - job_name: 'Consul-ESM-Node'
         static_configs:
@@ -101,17 +112,39 @@ resource "aws_instance" "prometheus" {
           - targets: [
               "${aws_instance.esm[0].private_ip}:8502"
             ]
-      - job_name: 'Consul-Server-Agent'
+      - job_name: 'Consul-Server0-Agent'
         metrics_path: /v1/agent/metrics
         params:
           format: ['prometheus']
+        bearer_token: 'e95b599e-166e-7d80-08ad-aee76e7ddf19'
         static_configs:
           - targets: [
-              %{ for i in range(length(aws_instance.consul)) }
-                "${aws_instance.consul[i].private_ip}:8500"${i < length(aws_instance.consul) - 1 ? "," : ""}
-              %{ endfor }
+              "${aws_instance.consul[0].private_ip}:8500"
             ]
+      - job_name: 'Consul-Server1-Agent'
+        metrics_path: /v1/agent/metrics
+        params:
+          format: ['prometheus']
         bearer_token: 'e95b599e-166e-7d80-08ad-aee76e7ddf19'
+        static_configs:
+          - targets: [
+              "${aws_instance.consul[1].private_ip}:8500"
+            ]
+      - job_name: 'Consul-Server2-Agent'
+        metrics_path: /v1/agent/metrics
+        params:
+          format: ['prometheus']
+        bearer_token: 'e95b599e-166e-7d80-08ad-aee76e7ddf19'
+        static_configs:
+          - targets: [
+              "${aws_instance.consul[2].private_ip}:8500"
+            ]
+      - job_name: 'Consul-Mesh-Gateway-Node'
+        # scrape_offset: 0s, use rule_query_offset instead
+        static_configs:
+          - targets: [
+              "${aws_instance.mgw_service[0].private_ip}:9100"
+            ]
     EOC
 
     # Create systemd service for Prometheus

@@ -1,4 +1,5 @@
 resource "aws_instance" "mgw_service" {
+  count = 1
   depends_on = [aws_instance.consul]
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.consul_instance_type

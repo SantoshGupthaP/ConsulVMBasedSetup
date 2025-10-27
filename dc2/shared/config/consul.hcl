@@ -5,7 +5,7 @@ advertise_addr = "IP_ADDRESS"
 
 bootstrap_expect = 3
 
-datacenter = "dc1"
+datacenter = "dc2"
 
 acl {
     enabled = true
@@ -64,11 +64,11 @@ tls {
     }
 }
 
-# Add telemetry configuration for metrics collection
-telemetry {
-  prometheus_retention_time = "60s"
-  disable_hostname = false
-}
+# # Add telemetry configuration for metrics collection
+# telemetry {
+#   prometheus_retention_time = "60s"
+#   disable_hostname = false
+# }
 
 auto_encrypt {
     allow_tls = true

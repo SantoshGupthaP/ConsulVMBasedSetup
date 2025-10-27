@@ -50,25 +50,24 @@ cat << EOF | sudo  tee /etc/consul-esm/config.hcl > /dev/null
 log_level = "INFO"
 enable_syslog = false
 
-# instance_id = "consul-esm-${environment}"
+instance_id = "${instanceid}"
 # For emitting Consul ESM metrics to Prometheus
 client_address = "0.0.0.0:8080"
 # service registration 
 consul_service = "consul-esm"
-consul_service_tag = "consul-external-service-monitor-tag"
+consul_service_tag = "consul-esm"
 
 consul_kv_path = "consul-esm/"
 
 # External node metadata - Standard ESM detection keys
 external_node_meta {
   "external-node" = "true"
-  "external-probe" = "true"
 }
 
 # Basic ESM settings
 node_reconnect_timeout = "72h"
-#node_probe_interval = "${ping_interval}"
-node_probe_interval = "10s"
+node_probe_interval = "${ping_interval}"
+# node_probe_interval = "10s"
 disable_coordinate_updates = false
 
 enable_agentless = true
