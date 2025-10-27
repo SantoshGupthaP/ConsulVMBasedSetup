@@ -1,0 +1,5 @@
+curl --request PUT \
+--header "X-Consul-Token: $CONSUL_HTTP_TOKEN" \
+--header "Content-Type: application/json" \
+--data @def.json \
+"$CONSUL_HTTP_ADDR/v1/partition/global"
