@@ -85,7 +85,7 @@ token = "${consul_token}"
 #token = "e95b599e-166e-7d80-08ad-aee76e7ddf19"
 
 # The Consul datacenter to use.
-datacenter = "dc1"
+datacenter = "dc2"
 
 # The target Admin Partition to use.
 # Can also be provided through the CONSUL_PARTITION environment variable.

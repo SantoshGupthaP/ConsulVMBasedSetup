@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "6.0"  # Use stable version
+    }
+  }
+}
+
 provider "aws" {
   region = var.region
 }
@@ -9,7 +18,7 @@ module "vpc" {
   name = "${var.name_prefix}-vpc"
   cidr = "10.0.0.0/16"
 
-  azs             = ["us-east-2a", "us-east-2b"]
+  azs             = ["ap-northeast-3a", "ap-northeast-3b"]
   private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
   public_subnets  = ["10.0.3.0/24", "10.0.4.0/24"]
 
@@ -270,6 +279,6 @@ resource "aws_key_pair" "minion-key" {
 
 resource "local_file" "minion-key" {
   content         = tls_private_key.pk.private_key_pem
-  filename        = "./c1-key.pem"
+  filename        = "./c1-key-test1.pem"
   file_permission = "0400"
 }

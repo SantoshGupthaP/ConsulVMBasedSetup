@@ -5,7 +5,7 @@ set -ex
 
 sudo apt-get update -y
 
-sudo apt-get install -y unzip wget
+sudo apt-get install -y unzip wget jq
 
 # Download Consul
 wget https://releases.hashicorp.com/consul/${consul_version}/consul_${consul_version}_linux_amd64.zip

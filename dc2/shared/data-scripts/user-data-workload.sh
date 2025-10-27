@@ -3,8 +3,12 @@
 exec > >(sudo tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 set -ex
 
-apt-get update -y
-apt-get install -y python3 python3-pip
+sudo apt-get update -y
+
+# jq is required for load/stress test scripts, other tools are optional
+sudo apt-get install -y unzip tree redis-tools jq curl tmux
+
+sudo apt-get install -y python3 python3-pip
 
 pip3 install flask gunicorn
 

@@ -207,7 +207,7 @@ resource "aws_ssm_parameter" "esm_config" {
 resource "aws_instance" "esm" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.consul_instance_type
-  count = 1
+  count = 3
   key_name               = aws_key_pair.minion-key.key_name
   subnet_id              = module.vpc.public_subnets[0]
   vpc_security_group_ids = [aws_security_group.esm.id]
@@ -223,6 +223,7 @@ resource "aws_instance" "esm" {
     consul_datacenter     = var.consul_datacenter
     ping_interval         = var.ping_interval
     environment           = var.name_prefix
+    instanceid           = "consul-esm-${count.index}"
   })
 
   tags = {
