@@ -108,7 +108,7 @@ After=network-online.target
 ConditionFileNotEmpty=/etc/consul-esm/config.hcl
 
 [Service]
-Type=notify
+Type=simple
 User=root
 Group=root
 ExecStart=/usr/local/bin/consul-esm -config-file=/etc/consul-esm/config.hcl
