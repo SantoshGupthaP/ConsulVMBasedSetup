@@ -11,12 +11,6 @@ variable "node_exporter_version" {
   default     = "1.9.1" #1.8.0. 
 }
 
-# variable "consul_domain" {
-#   description = "Consul domain for ESM connection"
-#   type        = string
-#   #default     = "service.consul"
-# }
-
 variable "consul_token" {
   description = "Consul ACL token for ESM node"
   type        = string

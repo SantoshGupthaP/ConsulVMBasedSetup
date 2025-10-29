@@ -62,13 +62,12 @@ consul_kv_path = "consul-esm/"
 # External node metadata - Standard ESM detection keys
 external_node_meta {
   "external-node" = "true"
-  "external-probe" = "true"
 }
 
 # Basic ESM settings
 node_reconnect_timeout = "72h"
-#node_probe_interval = "${ping_interval}"
-node_probe_interval = "10s"
+node_probe_interval = "${ping_interval}"
+# node_probe_interval = "10s"
 disable_coordinate_updates = false
 
 enable_agentless = true
@@ -109,7 +108,7 @@ After=network-online.target
 ConditionFileNotEmpty=/etc/consul-esm/config.hcl
 
 [Service]
-Type=notify
+Type=simple
 User=root
 Group=root
 ExecStart=/usr/local/bin/consul-esm -config-file=/etc/consul-esm/config.hcl
