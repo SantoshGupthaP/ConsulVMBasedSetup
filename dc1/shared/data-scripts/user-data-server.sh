@@ -80,15 +80,3 @@ sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
 
 echo "Node Exporter installation completed"
-
-# # starting the application
-# if [ "${application_name}" = "consul-server=1" ]; then
-#   # receiver
-#   consul peering generate-token -name cluster-02
-# elif [ "${application_name}" = "consul-server=0" ]; then
-#   # dialer
-#   consul peering establish -name cluster-01 -peering-token token-from-generate
-# else
-#   echo "Unknown application name: ${application_name}"
-# fi
-
