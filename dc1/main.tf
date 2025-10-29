@@ -273,7 +273,7 @@ resource "tls_private_key" "pk" {
 }
 
 resource "aws_key_pair" "minion-key" {
-  key_name   = "c1-key-2"
+  key_name   = "c1-key-1"
   public_key = tls_private_key.pk.public_key_openssh
 }
 

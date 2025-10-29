@@ -3,7 +3,6 @@ bind_addr = "0.0.0.0"
 client_addr = "0.0.0.0"
 advertise_addr = "IP_ADDRESS"
 retry_join = ["RETRY_JOIN"]
-# retry_join_wan = ["WAN_RETRY_JOIN"]
 datacenter = "dc2"
 
 acl {
@@ -43,10 +42,10 @@ tls {
 }
 
 # Add telemetry configuration for metrics collection
-# telemetry {
-#   prometheus_retention_time = "60s"
-#   disable_hostname = false
-# }
+telemetry {
+  prometheus_retention_time = "60s"
+  disable_hostname = false
+}
 
 auto_encrypt {
   tls = true

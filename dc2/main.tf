@@ -273,12 +273,12 @@ resource "tls_private_key" "pk" {
 }
 
 resource "aws_key_pair" "minion-key" {
-  key_name   = "c1-key-cluster2"
+  key_name   = "c2-key-1"
   public_key = tls_private_key.pk.public_key_openssh
 }
 
 resource "local_file" "minion-key" {
   content         = tls_private_key.pk.private_key_pem
-  filename        = "./c1-key-test1.pem"
+  filename        = "./c2-key.pem"
   file_permission = "0400"
 }

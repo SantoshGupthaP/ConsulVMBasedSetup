@@ -3,11 +3,11 @@ output "consul_ui_urls" {
 }
 
 output "ssh_to_consul" {
-  value = [for i in aws_instance.consul : "ssh -i c1-key.pem ubuntu@${i.public_ip}"]
+  value = [for i in aws_instance.consul : "ssh -i c2-key.pem ubuntu@${i.public_ip}"]
 }
 
 output "ssh_to_mgw" {
-  value = [for i in aws_instance.mgw_service : "ssh -i c1-key.pem ubuntu@${i.public_ip}"]
+  value = [for i in aws_instance.mgw_service : "ssh -i c2-key.pem ubuntu@${i.public_ip}"]
 }
 
 output "CONSUL_HTTP_ADDR" {
@@ -25,7 +25,7 @@ output "grafana_ui_url" {
 
 output "ssh_to_grafana" {
   description = "SSH command to connect to Grafana EC2 instance"
-  value       = "ssh -i c1-key.pem ubuntu@${aws_instance.grafana.public_ip}"
+  value       = "ssh -i c2-key.pem ubuntu@${aws_instance.grafana.public_ip}"
 }
 
 # output "grafana_default_login" {
@@ -40,12 +40,12 @@ output "prometheus_ui_url" {
 
 output "ssh_to_prometheus" {
   description = "SSH command to connect to Prometheus EC2 instance"
-  value       = "ssh -i c1-key.pem ubuntu@${aws_instance.prometheus.public_ip}"
+  value       = "ssh -i c2-key.pem ubuntu@${aws_instance.prometheus.public_ip}"
 }
 
 output "ssh_to_load_generator" {
   description = "SSH command to connect to Load Generator EC2 instance"
-  value       = "ssh -i c1-key.pem ubuntu@${aws_instance.load_generator.public_ip}"
+  value       = "ssh -i c2-key.pem ubuntu@${aws_instance.load_generator.public_ip}"
 }
 
 output "Private_IPs_of_Worker_Nodes" {
