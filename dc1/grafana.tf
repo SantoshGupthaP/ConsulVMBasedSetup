@@ -33,9 +33,9 @@ resource "aws_security_group" "grafana_sg" {
 
 # # Grafana EC2 instance
 resource "aws_instance" "grafana" {
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = var.instance_type
-  key_name               = aws_key_pair.minion-key.key_name
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = var.instance_type
+  key_name                    = aws_key_pair.minion-key.key_name
   associate_public_ip_address = true
 
   tags = {

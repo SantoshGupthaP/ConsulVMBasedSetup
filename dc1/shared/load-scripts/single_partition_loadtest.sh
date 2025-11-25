@@ -79,6 +79,7 @@ register_service() {
         "Node": $target_ip,
         "ID": $reg_uuid,
         "Address": $target_ip,
+        "SkipNodeUpdate": true,
         "NodeMeta": { "external-node": "true", "external-probe": "false" },
         "Service": {
           "ID": $svc_id,
@@ -127,7 +128,7 @@ end_index=$((START_INDEX + TOTAL_PARTITIONS - 1))
 created_count=0
 partition_name="global"
 
-for (( n=1; n<=500; n++ )); do
+for (( n=1; n<=10; n++ )); do
       namespace_name="ns-${n}"
       if create_namespace "$partition_name" "$namespace_name"; then
         for (( s=1; s<=10; s++ )); do

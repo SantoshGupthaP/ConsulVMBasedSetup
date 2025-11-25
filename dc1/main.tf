@@ -2,13 +2,22 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "6.0"  # Use stable version
+      version = "6.0" # Use stable version
+    }
+    consul = {
+      source  = "hashicorp/consul"
+      version = "2.22.1"
     }
   }
 }
 
 provider "aws" {
   region = var.region
+}
+
+provider "consul" {
+  address = "http://${aws_instance.consul[0].public_ip}:8500"
+  token   = var.consul_token
 }
 
 # create vpc
@@ -42,42 +51,50 @@ resource "aws_security_group" "consul_sg" {
 
   # Consul
   ingress {
-    from_port       = 8500
-    to_port         = 8500
-    protocol        = "tcp"
-    cidr_blocks     = ["0.0.0.0/0"]
+    from_port   = 8500
+    to_port     = 8500
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # hello-service
   ingress {
-    from_port       = 5050
-    to_port         = 5050
-    protocol        = "tcp"
-    cidr_blocks     = ["0.0.0.0/0"]
+    from_port   = 5050
+    to_port     = 5050
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # response-service
   ingress {
-    from_port       = 6060
-    to_port         = 6060
-    protocol        = "tcp"
-    cidr_blocks     = ["0.0.0.0/0"]
+    from_port   = 6060
+    to_port     = 6060
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # api-gw/mgw-service
   ingress {
-    from_port       = 8443
-    to_port         = 8443
-    protocol        = "tcp"
-    cidr_blocks     = ["0.0.0.0/0"]
+    from_port   = 8443
+    to_port     = 8443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # envoy admin
   ingress {
-    from_port       = 19000
-    to_port         = 19000
-    protocol        = "tcp"
-    cidr_blocks     = ["0.0.0.0/0"]
+    from_port   = 19000
+    to_port     = 19000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # Consul gRPC (used for xDS and streaming)
+  ingress {
+    from_port   = 8502
+    to_port     = 8502
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # allow_all_internal_traffic
@@ -110,11 +127,11 @@ data "aws_ami" "ubuntu" {
 
 # Add EC2 instance for Consul
 resource "aws_instance" "consul" {
-  count = 3
-  instance_type = var.consul_instance_type
-  ami = data.aws_ami.ubuntu.id
-  key_name      = aws_key_pair.minion-key.key_name
-  associate_public_ip_address = true    # Enable public IP
+  count                       = 3
+  instance_type               = var.consul_instance_type
+  ami                         = data.aws_ami.ubuntu.id
+  key_name                    = aws_key_pair.minion-key.key_name
+  associate_public_ip_address = true # Enable public IP
 
   # instance tags
   # ConsulAutoJoin is necessary for nodes to automatically join the cluster
@@ -131,10 +148,10 @@ resource "aws_instance" "consul" {
   )
 
   root_block_device {
-    volume_size = 300         # Set to 300 or 500 as needed
-    volume_type = "gp3"       # gp3 is recommended for new workloads
+    volume_size           = 300   # Set to 300 or 500 as needed
+    volume_type           = "gp3" # gp3 is recommended for new workloads
     delete_on_termination = true
-    encrypted = true
+    encrypted             = true
   }
 
   iam_instance_profile = aws_iam_instance_profile.instance_profile.name
@@ -159,18 +176,89 @@ resource "aws_instance" "consul" {
   }
 
   user_data = templatefile("${path.module}/shared/data-scripts/user-data-server.sh", {
-    server_count              = 3
-    region                    = var.region
-    cloud_env                 = "aws"
-    retry_join                = var.retry_join
-    consul_version = var.consul_version
-    envoy_version = var.envoy_version
-    application_name          = "${var.name_prefix}-consul-server"
+    server_count     = 3
+    region           = var.region
+    cloud_env        = "aws"
+    retry_join       = var.retry_join
+    consul_version   = var.consul_version
+    envoy_version    = var.envoy_version
+    application_name = "${var.name_prefix}-consul-server"
   })
 
   vpc_security_group_ids = [aws_security_group.consul_sg.id]
   # associate the public subnet with the instance
   subnet_id = module.vpc.public_subnets[0]
+}
+
+# Wait for Consul to be ready before creating admin partitions
+resource "null_resource" "wait_for_consul" {
+  depends_on = [aws_instance.consul]
+
+  provisioner "local-exec" {
+    command = <<-EOF
+      for i in {1..30}; do
+        if curl -s http://${aws_instance.consul[0].public_ip}:8500/v1/status/leader | grep -q ":"; then
+          echo "Consul is ready"
+          exit 0
+        fi
+        echo "Waiting for Consul to be ready... attempt $i"
+        sleep 10
+      done
+      echo "Consul did not become ready in time"
+      exit 1
+    EOF
+  }
+}
+
+resource "consul_admin_partition" "global" {
+  name        = "global"
+  description = "Global partition for testing scale of service exports on Consul"
+
+  depends_on = [null_resource.wait_for_consul]
+}
+
+resource "consul_config_entry" "mesh_default" {
+  name      = "mesh"
+  kind      = "mesh"
+  partition = "default"
+
+  config_json = jsonencode({
+    Peering = {
+      PeerThroughMeshGateways = false
+    }
+  })
+
+  depends_on = [null_resource.wait_for_consul]
+}
+
+resource "consul_config_entry" "mesh" {
+  name      = "mesh"
+  kind      = "mesh"
+  partition = "global"
+
+  config_json = jsonencode({
+    Peering = {
+      PeerThroughMeshGateways = false
+    }
+  })
+
+  depends_on = [consul_admin_partition.global]
+}
+
+resource "consul_config_entry" "exported_services" {
+    name = "global"
+    kind = "exported-services"
+    partition = "global"
+
+    config_json = jsonencode({
+        Services = [{
+            Name = "*"
+            Namespace = "*"
+            Consumers = [{
+                Peer = "dc2"
+            }]
+        }]
+    })
 }
 
 resource "aws_security_group" "load_generator" {
@@ -193,18 +281,18 @@ resource "aws_security_group" "load_generator" {
 }
 
 resource "aws_instance" "load_generator" {
-  ami                    = data.aws_ami.ubuntu.id # data.aws_ami.amazon_linux.id
-  instance_type          = "t3.large"
-  key_name               = aws_key_pair.minion-key.key_name
-  subnet_id              = module.vpc.public_subnets[0]
-  vpc_security_group_ids = [aws_security_group.load_generator.id]
+  ami                         = data.aws_ami.ubuntu.id # data.aws_ami.amazon_linux.id
+  instance_type               = "t3.large"
+  key_name                    = aws_key_pair.minion-key.key_name
+  subnet_id                   = module.vpc.public_subnets[0]
+  vpc_security_group_ids      = [aws_security_group.load_generator.id]
   associate_public_ip_address = true
 
   # Simple user data to just install the Consul CLI
 
   user_data = templatefile("${path.module}/shared/data-scripts/user-data-loadgenerator.sh.tpl", {
     consul_version = var.consul_version
-    CONSUL_IP = aws_instance.consul[0].private_ip
+    CONSUL_IP      = aws_instance.consul[0].private_ip
   })
 
   # copy files from ./shared to /ops with private key permissions

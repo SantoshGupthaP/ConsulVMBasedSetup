@@ -2,7 +2,7 @@
 variable "esm_version" {
   description = "Consul ESM version to install"
   type        = string
-  default     = "0.9.0"# "1.6.0"
+  default     = "0.9.0" # "1.6.0"
 }
 
 variable "node_exporter_version" {

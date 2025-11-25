@@ -1,15 +1,15 @@
 locals {
   name_prefix = "${var.name_prefix}-consul-esm"
   esm_config = {
-    log_level       = "INFO"
-    enable_syslog   = false
+    log_level     = "INFO"
+    enable_syslog = false
 
     # Basic ESM settings
-    node_reconnect_timeout = "72h"
-    node_probe_interval = var.ping_interval
-    http_addr = "0.0.0.0:8080"
+    node_reconnect_timeout     = "72h"
+    node_probe_interval        = var.ping_interval
+    http_addr                  = "0.0.0.0:8080"
     disable_coordinate_updates = false
-    instance_id = "consul-esm-${var.name_prefix}"
+    instance_id                = "consul-esm-${var.name_prefix}"
 
     # Consul connection configuration
     consul = {
@@ -27,13 +27,13 @@ locals {
 
     # External node metadata - Using standard ESM detection keys
     external_node_meta = {
-      "external-node" = "true"      # Standard ESM detection key
-      "external-probe" = "true"     # Enable ESM node health probing
+      "external-node"  = "true" # Standard ESM detection key
+      "external-probe" = "true" # Enable ESM node health probing
     }
 
     # Telemetry configuration
     telemetry = {
-      disable_hostname = true
+      disable_hostname          = true
       prometheus_retention_time = "60s"
     }
   }
@@ -205,16 +205,16 @@ resource "aws_ssm_parameter" "esm_config" {
 
 # Launch instance for ESM
 resource "aws_instance" "esm" {
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = var.consul_instance_type
-  count = 3
-  key_name               = aws_key_pair.minion-key.key_name
-  subnet_id              = module.vpc.public_subnets[0]
-  vpc_security_group_ids = [aws_security_group.esm.id]
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = var.consul_instance_type
+  count                       = 3
+  key_name                    = aws_key_pair.minion-key.key_name
+  subnet_id                   = module.vpc.public_subnets[0]
+  vpc_security_group_ids      = [aws_security_group.esm.id]
   associate_public_ip_address = true
 
-  iam_instance_profile   = aws_iam_instance_profile.esm.name
-  depends_on = [ aws_instance.consul ]
+  iam_instance_profile = aws_iam_instance_profile.esm.name
+  depends_on           = [aws_instance.consul, consul_admin_partition.global]
   user_data = templatefile("${path.module}/shared/data-scripts/user-data-esm.sh.tpl", {
     esm_version           = var.esm_version
     node_exporter_version = var.node_exporter_version
@@ -223,7 +223,7 @@ resource "aws_instance" "esm" {
     consul_datacenter     = var.consul_datacenter
     ping_interval         = var.ping_interval
     environment           = var.name_prefix
-    instanceid           = "consul-esm-${count.index}"
+    instanceid            = "consul-esm-${count.index}"
   })
 
   tags = {
@@ -231,14 +231,14 @@ resource "aws_instance" "esm" {
   }
 
   root_block_device {
-    volume_size = 300         # Set to 300 or 500 as needed
-    volume_type = "gp3"       # gp3 is recommended for new workloads
+    volume_size           = 300   # Set to 300 or 500 as needed
+    volume_type           = "gp3" # gp3 is recommended for new workloads
     delete_on_termination = true
-    encrypted = true
+    encrypted             = true
   }
 }
 # Current region data source
-data "aws_region" "current" {} 
+data "aws_region" "current" {}
 
 # data "aws_instances" "esm" {
 #   instance_tags = {

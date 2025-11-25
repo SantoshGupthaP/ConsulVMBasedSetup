@@ -1,7 +1,7 @@
 output "ssh_to_esm" {
   description = "SSH command to connect to the ESM EC2 instance"
   value = [
-    for i in aws_instance.esm:
+    for i in aws_instance.esm :
     "ssh -i c1-key.pem ubuntu@${i.public_ip}"
   ]
 }

@@ -40,7 +40,7 @@ resource "aws_security_group" "workload" {
 }
 
 resource "aws_instance" "workload" {
-  count                  = 4
+  count                  = 3
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   key_name               = aws_key_pair.minion-key.key_name
@@ -48,7 +48,7 @@ resource "aws_instance" "workload" {
   vpc_security_group_ids = [aws_security_group.workload.id]
 
   associate_public_ip_address = true
-  user_data = file("${path.module}/shared/data-scripts/user-data-workload.sh")
+  user_data                   = file("${path.module}/shared/data-scripts/user-data-workload.sh")
   tags = {
     Name = "${var.name_prefix}-workload-${count.index + 1}"
   }

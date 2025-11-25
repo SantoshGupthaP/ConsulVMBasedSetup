@@ -6,9 +6,9 @@ output "ssh_to_consul" {
   value = [for i in aws_instance.consul : "ssh -i c2-key.pem ubuntu@${i.public_ip}"]
 }
 
-output "ssh_to_mgw" {
-  value = [for i in aws_instance.mgw_service : "ssh -i c2-key.pem ubuntu@${i.public_ip}"]
-}
+# output "ssh_to_mgw" {
+#   value = [for i in aws_instance.mgw_service : "ssh -i c2-key.pem ubuntu@${i.public_ip}"]
+# }
 
 output "CONSUL_HTTP_ADDR" {
   value = <<CONFIGURATION

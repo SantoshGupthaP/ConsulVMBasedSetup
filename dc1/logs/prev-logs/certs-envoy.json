@@ -1,0 +1,8 @@
+{
+ "certificates": [
+  {
+   "ca_cert": [],
+   "cert_chain": []
+  }
+ ]
+}

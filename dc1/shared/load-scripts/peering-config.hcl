@@ -7,7 +7,7 @@ Services = [
     Namespace = "*"
     Consumers = [
       {
-        Peer = "acceptor-cluster"
+        Peer = "dc2"
       }
     ]
   }

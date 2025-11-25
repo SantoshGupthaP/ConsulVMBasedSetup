@@ -1,0 +1,465 @@
+Nov 19 10:36:00 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:00.662Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.234:41092
+Nov 19 10:36:01 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:01.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:01 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:01.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:01 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:01.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:03.239Z [DEBUG] agent.router.manager: Rebalanced servers, new active server: number_of_servers=3 active_server="ip-10-0-3-253 (Addr: tcp/10.0.3.253:8300) (DC: dc1)"
+Nov 19 10:36:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:03.239Z [TRACE] agent.server: rpc_server_call: method=Status.Ping errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:03.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:03.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:03.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:04 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:04.481Z [TRACE] agent.server: rpc_server_call: method=Catalog.ListDatacenters errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false
+Nov 19 10:36:04 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:04.498Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:36:04 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:04.800Z [TRACE] agent.tlsutil: IncomingGRPConfig: version=6
+Nov 19 10:36:04 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:04.941Z [TRACE] agent: [credentials]Allowing TLS connection from client with ALPN disabled. TLS connections with ALPN disabled will be disallowed in future grpc-go releases
+Nov 19 10:36:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:05.081Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Started processing request: request_id=2fadcba3-e385-1a4c-9ad7-4b54fba04c50
+Nov 19 10:36:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:05.081Z [DEBUG] agent.server.grpc-api.peerstream.stream-resources: cannot establish a peering stream on a follower node: request_id=2fadcba3-e385-1a4c-9ad7-4b54fba04c50
+Nov 19 10:36:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:05.081Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Finished processing request: request_id=2fadcba3-e385-1a4c-9ad7-4b54fba04c50
+Nov 19 10:36:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:05.221Z [TRACE] agent: [transport][server-transport 0xc000b06300] Closing: EOF
+Nov 19 10:36:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:05.221Z [TRACE] agent: [transport][server-transport 0xc000b06300] loopyWriter exiting with error: transport closed by client
+Nov 19 10:36:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:05.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:05.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:05.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:06 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:06.794Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.254:42402
+Nov 19 10:36:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:07.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:07.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:07.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:07.551Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:36:08 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:08.360Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:36:08 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:08.673Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:36:09 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:09.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:09 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:09.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:09 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:09.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:10 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:10.629Z [INFO]  agent.server.raft.logstore.verifier: verification checksum OK: elapsed=3.355757ms leaderChecksum=b3e32acd0484a5ee rangeEnd=194110 rangeStart=193857 readChecksum=b3e32acd0484a5ee
+Nov 19 10:36:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:11.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:11.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:11.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:12 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:12.429Z [DEBUG] agent.http: Request finished: method=GET url=/v1/agent/metrics?format=prometheus from=10.0.3.42:34238 latency=15.253372ms
+Nov 19 10:36:12 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:12.429Z [DEBUG] agent: warning: request content-type is not supported: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:36:12 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:12.429Z [DEBUG] agent: warning: response content-type header not explicitly set.: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:36:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:13.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:13.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:13.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:15.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:15.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:15.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:16 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:16.490Z [TRACE] agent.server: rpc_server_call: method=Status.Ping errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:16 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:16.490Z [TRACE] agent.tlsutil: IncomingRPCConfig: version=6
+Nov 19 10:36:16 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:16.490Z [TRACE] agent.tlsutil: IncomingRPCConfig: version=6
+Nov 19 10:36:17 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:17.360Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:36:17 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:17.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:17 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:17.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:17 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:17.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:18 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:18.067Z [DEBUG] agent.server.memberlist.wan: memberlist: Initiating push/pull sync with: ip-10-0-3-234.dc1 10.0.3.234:8302
+Nov 19 10:36:18 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:18.100Z [TRACE] agent.server: rpc_server_call: method=ConfigEntry.ResolveServiceConfig errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=true target_datacenter=dc1 locality=local
+Nov 19 10:36:18 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:18.791Z [DEBUG] agent.server.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-254 10.0.3.254:8301
+Nov 19 10:36:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:19.358Z [DEBUG] agent.server.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-234 10.0.3.234:8301
+Nov 19 10:36:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:19.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:19.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:19.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:19.594Z [DEBUG] agent.server.memberlist.wan: memberlist: Stream connection from=10.0.3.254:41744
+Nov 19 10:36:21 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:21.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:21 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:21.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:21 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:21.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:23 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:23.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:23 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:23.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:23 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:23.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:23 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:23.761Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:36:24 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:24.166Z [TRACE] agent.server: rpc_server_call: method=Catalog.NodeServiceList errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:36:24 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:24.167Z [TRACE] agent.server: rpc_server_call: method=Health.NodeChecks errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:36:25 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:25.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:25 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:25.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:25 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:25.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:25 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:25.914Z [TRACE] agent.tlsutil: IncomingGRPConfig: version=6
+Nov 19 10:36:26 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:26.054Z [TRACE] agent: [credentials]Allowing TLS connection from client with ALPN disabled. TLS connections with ALPN disabled will be disallowed in future grpc-go releases
+Nov 19 10:36:26 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:26.193Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Started processing request: request_id=bd3652d6-a098-96af-3fbd-96b49eaf26bb
+Nov 19 10:36:26 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:26.193Z [DEBUG] agent.server.grpc-api.peerstream.stream-resources: cannot establish a peering stream on a follower node: request_id=bd3652d6-a098-96af-3fbd-96b49eaf26bb
+Nov 19 10:36:26 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:26.193Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Finished processing request: request_id=bd3652d6-a098-96af-3fbd-96b49eaf26bb
+Nov 19 10:36:26 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:26.332Z [TRACE] agent: [transport][server-transport 0xc000ebf500] Closing: EOF
+Nov 19 10:36:26 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:26.332Z [TRACE] agent: [transport][server-transport 0xc000ebf500] loopyWriter exiting with error: transport closed by client
+Nov 19 10:36:26 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:26.360Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:36:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:27.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:27.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:27.429Z [DEBUG] agent.http: Request finished: method=GET url=/v1/agent/metrics?format=prometheus from=10.0.3.42:34238 latency=14.899554ms
+Nov 19 10:36:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:27.429Z [DEBUG] agent: warning: request content-type is not supported: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:36:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:27.429Z [DEBUG] agent: warning: response content-type header not explicitly set.: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:36:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:27.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:28 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:28.443Z [TRACE] agent.server: rpc_server_call: method=Catalog.NodeServiceList errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:36:28 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:28.443Z [TRACE] agent.server: rpc_server_call: method=Health.NodeChecks errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:36:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:29.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:29.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:29.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:31.113Z [TRACE] agent.server: rpc_server_call: method=Status.Ping errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:31.362Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:31.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:31.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:31.919Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:36:33 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:33.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:33 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:33.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:33 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:33.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:34 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:34.443Z [TRACE] agent.server: rpc_server_call: method=Catalog.ListDatacenters errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false
+Nov 19 10:36:34 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:34.859Z [TRACE] agent.server: rpc_server_call: method=Catalog.ListDatacenters errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false
+Nov 19 10:36:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:35.361Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:36:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:35.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:35.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:35.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:35.558Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.234:56182
+Nov 19 10:36:36 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:36.796Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.254:50768
+Nov 19 10:36:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:37.362Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:37.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:37.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:37.552Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:36:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:37.680Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:36:38 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:38.182Z [DEBUG] agent.router.manager: Rebalanced servers, new active server: number_of_servers=3 active_server="ip-10-0-3-254.dc1 (Addr: tcp/10.0.3.254:8300) (DC: dc1)"
+Nov 19 10:36:39 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:39.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:39 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:39.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:39 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:39.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:41.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:41.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:41.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:42 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:42.428Z [DEBUG] agent.http: Request finished: method=GET url=/v1/agent/metrics?format=prometheus from=10.0.3.42:34238 latency=14.739675ms
+Nov 19 10:36:42 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:42.428Z [DEBUG] agent: warning: request content-type is not supported: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:36:42 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:42.428Z [DEBUG] agent: warning: response content-type header not explicitly set.: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:36:43 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:43.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:43 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:43.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:43 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:43.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:44 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:44.320Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:36:44 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:44.360Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:36:45 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:45.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:45 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:45.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:45 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:45.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:45 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:45.516Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.254:45836
+Nov 19 10:36:46 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:46.314Z [TRACE] agent.server: rpc_server_call: method=Catalog.NodeServiceList errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:36:46 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:46.314Z [TRACE] agent.server: rpc_server_call: method=Health.NodeChecks errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:36:46 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:46.314Z [DEBUG] agent: Skipping remote check since it is managed automatically: check=serfHealth
+Nov 19 10:36:46 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:46.314Z [DEBUG] agent: Node info in sync
+Nov 19 10:36:46 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:46.314Z [TRACE] agent.server: rpc_server_call: method=Catalog.Register errored=true request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:36:46 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:46.315Z [WARN]  agent: Service registration blocked by ACLs: service=default/default/jpmc-consul accessorID="anonymous token"
+Nov 19 10:36:47 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:47.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:47 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:47.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:47 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:47.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:48 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:48.793Z [DEBUG] agent.server.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-254 10.0.3.254:8301
+Nov 19 10:36:49 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:49.360Z [DEBUG] agent.server.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-115 10.0.3.115:8301
+Nov 19 10:36:49 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:49.362Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:49 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:49.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:49 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:49.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:51 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:51.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:51 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:51.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:51 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:51.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:53 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:53.361Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:36:53 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:53.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:53 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:53.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:53 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:53.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:55.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:55.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:55.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:57.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:57.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:57.429Z [DEBUG] agent.http: Request finished: method=GET url=/v1/agent/metrics?format=prometheus from=10.0.3.42:34238 latency=15.705006ms
+Nov 19 10:36:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:57.429Z [DEBUG] agent: warning: request content-type is not supported: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:36:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:57.429Z [DEBUG] agent: warning: response content-type header not explicitly set.: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:36:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:57.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:57.717Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:36:59 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:59.061Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:36:59 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:59.362Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:59 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:59.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:36:59 ip-10-0-3-253 consul[3111]: 2025-11-19T10:36:59.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:01 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:01.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:01 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:01.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:01 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:01.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:02 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:02.360Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:37:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:03.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:03.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:03.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:04 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:04.204Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:37:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:05.087Z [TRACE] agent.server: rpc_server_call: method=Catalog.ListDatacenters errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false
+Nov 19 10:37:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:05.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:05.371Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:05.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:05.559Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.234:42724
+Nov 19 10:37:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:05.644Z [TRACE] agent.server: rpc_server_call: method=Catalog.ListDatacenters errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false
+Nov 19 10:37:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:07.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:07.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:07.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:07.553Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:37:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:07.588Z [TRACE] agent.tlsutil: IncomingGRPConfig: version=6
+Nov 19 10:37:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:07.727Z [TRACE] agent: [credentials]Allowing TLS connection from client with ALPN disabled. TLS connections with ALPN disabled will be disallowed in future grpc-go releases
+Nov 19 10:37:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:07.866Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Started processing request: request_id=904f72d3-570c-b8be-16bf-efee4ad9049b
+Nov 19 10:37:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:07.866Z [DEBUG] agent.server.grpc-api.peerstream.stream-resources: cannot establish a peering stream on a follower node: request_id=904f72d3-570c-b8be-16bf-efee4ad9049b
+Nov 19 10:37:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:07.866Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Finished processing request: request_id=904f72d3-570c-b8be-16bf-efee4ad9049b
+Nov 19 10:37:08 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:08.004Z [TRACE] agent: [transport][server-transport 0xc001f22900] Closing: EOF
+Nov 19 10:37:08 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:08.004Z [TRACE] agent: [transport][server-transport 0xc001f22900] loopyWriter exiting with error: transport closed by client
+Nov 19 10:37:09 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:09.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:09 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:09.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:09 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:09.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:10 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:10.628Z [INFO]  agent.server.raft.logstore.verifier: verification checksum OK: elapsed=1.948165ms leaderChecksum=4243d80acba861d0 rangeEnd=194307 rangeStart=194110 readChecksum=4243d80acba861d0
+Nov 19 10:37:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:11.360Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:37:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:11.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:11.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:11.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:12 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:12.430Z [DEBUG] agent.http: Request finished: method=GET url=/v1/agent/metrics?format=prometheus from=10.0.3.42:34238 latency=15.621092ms
+Nov 19 10:37:12 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:12.430Z [DEBUG] agent: warning: request content-type is not supported: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:37:12 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:12.430Z [DEBUG] agent: warning: response content-type header not explicitly set.: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:37:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:13.226Z [TRACE] agent.server: rpc_server_call: method=Status.Ping errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:13.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:13.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:13.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:15.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:15.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:15.414Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:37:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:15.491Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:37:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:15.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:15.518Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.254:33508
+Nov 19 10:37:17 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:17.362Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:17 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:17.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:17 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:17.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:18 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:18.069Z [DEBUG] agent.server.memberlist.wan: memberlist: Initiating push/pull sync with: ip-10-0-3-234.dc1 10.0.3.234:8302
+Nov 19 10:37:18 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:18.795Z [DEBUG] agent.server.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-234 10.0.3.234:8301
+Nov 19 10:37:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:19.362Z [DEBUG] agent.server.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-234 10.0.3.234:8301
+Nov 19 10:37:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:19.362Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:37:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:19.362Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:19.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:19.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:19.538Z [TRACE] agent.server: rpc_server_call: method=ConfigEntry.List errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=true target_datacenter=dc1 locality=local
+Nov 19 10:37:20 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:20.237Z [TRACE] agent.server: rpc_server_call: method=Status.Ping errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:20 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:20.360Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:37:20 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:20.753Z [TRACE] agent.server: rpc_server_call: method=ConfigEntry.Get errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=true target_datacenter=dc1 locality=local
+Nov 19 10:37:21 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:21.362Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:21 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:21.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:21 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:21.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:23 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:23.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:23 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:23.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:23 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:23.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:25 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:25.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:25 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:25.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:25 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:25.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:26 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:26.953Z [TRACE] agent: [transport][server-transport 0xc001f22300] Closing: EOF
+Nov 19 10:37:26 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:26.953Z [TRACE] agent: [transport][server-transport 0xc001f22300] loopyWriter exiting with error: transport closed by client
+Nov 19 10:37:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:27.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:27.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:27.430Z [DEBUG] agent.http: Request finished: method=GET url=/v1/agent/metrics?format=prometheus from=10.0.3.42:34238 latency=15.723518ms
+Nov 19 10:37:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:27.430Z [DEBUG] agent: warning: request content-type is not supported: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:37:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:27.430Z [DEBUG] agent: warning: response content-type header not explicitly set.: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:37:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:27.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:28 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:28.702Z [TRACE] agent.tlsutil: IncomingGRPConfig: version=6
+Nov 19 10:37:28 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:28.841Z [TRACE] agent: [credentials]Allowing TLS connection from client with ALPN disabled. TLS connections with ALPN disabled will be disallowed in future grpc-go releases
+Nov 19 10:37:28 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:28.979Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Started processing request: request_id=53ebaa00-ed6c-3610-b4dd-ea94dac25269
+Nov 19 10:37:28 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:28.979Z [DEBUG] agent.server.grpc-api.peerstream.stream-resources: cannot establish a peering stream on a follower node: request_id=53ebaa00-ed6c-3610-b4dd-ea94dac25269
+Nov 19 10:37:28 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:28.979Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Finished processing request: request_id=53ebaa00-ed6c-3610-b4dd-ea94dac25269
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.117Z [TRACE] agent: [transport][server-transport 0xc001f22780] Closing: EOF
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.117Z [TRACE] agent: [transport][server-transport 0xc001f22780] loopyWriter exiting with error: transport closed by client
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.257Z [TRACE] agent.tlsutil: IncomingGRPConfig: version=6
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.361Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.396Z [TRACE] agent: [credentials]Allowing TLS connection from client with ALPN disabled. TLS connections with ALPN disabled will be disallowed in future grpc-go releases
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.535Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Started processing request: request_id=084b7e2c-fdac-ed12-8236-56bdeedb44c1
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.535Z [DEBUG] agent.server.grpc-api.peerstream.stream-resources: cannot establish a peering stream on a follower node: request_id=084b7e2c-fdac-ed12-8236-56bdeedb44c1
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.535Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Finished processing request: request_id=084b7e2c-fdac-ed12-8236-56bdeedb44c1
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.674Z [TRACE] agent: [transport][server-transport 0xc001f22000] Closing: EOF
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.674Z [TRACE] agent: [transport][server-transport 0xc001f22000] loopyWriter exiting with error: transport closed by client
+Nov 19 10:37:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:29.743Z [DEBUG] agent.server.memberlist.wan: memberlist: Stream connection from=10.0.3.234:34966
+Nov 19 10:37:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:31.362Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:31.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:31.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:31.864Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:37:33 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:33.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:33 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:33.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:33 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:33.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:35.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:35.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:35.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:35.561Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.234:37946
+Nov 19 10:37:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:35.878Z [TRACE] agent.server: rpc_server_call: method=Catalog.ListDatacenters errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false
+Nov 19 10:37:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:35.972Z [TRACE] agent.server: rpc_server_call: method=Catalog.ListDatacenters errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false
+Nov 19 10:37:36 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:36.799Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.254:35548
+Nov 19 10:37:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:37.108Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:37:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:37.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:37.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:37.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:37.553Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:37:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:37.573Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:37:38 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:38.360Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:37:39 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:39.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:39 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:39.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:39 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:39.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:41.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:41.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:41.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:42 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:42.428Z [DEBUG] agent.http: Request finished: method=GET url=/v1/agent/metrics?format=prometheus from=10.0.3.42:34238 latency=14.593645ms
+Nov 19 10:37:42 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:42.428Z [DEBUG] agent: warning: request content-type is not supported: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:37:42 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:42.428Z [DEBUG] agent: warning: response content-type header not explicitly set.: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:37:43 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:43.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:43 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:43.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:43 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:43.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:45 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:45.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:45 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:45.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:45 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:45.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:45 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:45.520Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.254:54070
+Nov 19 10:37:47 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:47.361Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:37:47 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:47.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:47 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:47.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:47 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:47.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:47 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:47.942Z [TRACE] agent.server: rpc_server_call: method=Catalog.NodeServiceList errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:37:47 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:47.943Z [TRACE] agent.server: rpc_server_call: method=Health.NodeChecks errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:37:48 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:48.797Z [DEBUG] agent.server.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-254 10.0.3.254:8301
+Nov 19 10:37:49 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:49.363Z [DEBUG] agent.server.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-254 10.0.3.254:8301
+Nov 19 10:37:49 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:49.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:49 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:49.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:49 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:49.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:49 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:49.814Z [TRACE] agent.tlsutil: IncomingGRPConfig: version=6
+Nov 19 10:37:49 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:49.953Z [TRACE] agent: [credentials]Allowing TLS connection from client with ALPN disabled. TLS connections with ALPN disabled will be disallowed in future grpc-go releases
+Nov 19 10:37:50 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:50.092Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Started processing request: request_id=36fc0a77-699a-b312-758c-7e16d8ce5eca
+Nov 19 10:37:50 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:50.092Z [DEBUG] agent.server.grpc-api.peerstream.stream-resources: cannot establish a peering stream on a follower node: request_id=36fc0a77-699a-b312-758c-7e16d8ce5eca
+Nov 19 10:37:50 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:50.092Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Finished processing request: request_id=36fc0a77-699a-b312-758c-7e16d8ce5eca
+Nov 19 10:37:50 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:50.230Z [TRACE] agent: [transport][server-transport 0xc00123c300] Closing: EOF
+Nov 19 10:37:50 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:50.230Z [TRACE] agent: [transport][server-transport 0xc00123c300] loopyWriter exiting with error: transport closed by client
+Nov 19 10:37:51 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:51.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:51 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:51.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:51 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:51.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:53 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:53.225Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:37:53 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:53.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:53 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:53.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:53 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:53.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:55.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:55.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:55.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:55.833Z [TRACE] agent.server: rpc_server_call: method=Catalog.NodeServiceList errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:37:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:55.833Z [TRACE] agent.server: rpc_server_call: method=Health.NodeChecks errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:37:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:55.833Z [DEBUG] agent: Skipping remote check since it is managed automatically: check=serfHealth
+Nov 19 10:37:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:55.833Z [DEBUG] agent: Node info in sync
+Nov 19 10:37:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:55.834Z [TRACE] agent.server: rpc_server_call: method=Catalog.Register errored=true request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:37:55 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:55.834Z [WARN]  agent: Service registration blocked by ACLs: service=default/default/jpmc-consul accessorID="anonymous token"
+Nov 19 10:37:56 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:56.360Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:37:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:57.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:57.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:57.428Z [DEBUG] agent.http: Request finished: method=GET url=/v1/agent/metrics?format=prometheus from=10.0.3.42:34238 latency=14.794316ms
+Nov 19 10:37:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:57.428Z [DEBUG] agent: warning: request content-type is not supported: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:37:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:57.428Z [DEBUG] agent: warning: response content-type header not explicitly set.: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:37:57 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:57.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:59 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:59.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:59 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:59.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:37:59 ip-10-0-3-253 consul[3111]: 2025-11-19T10:37:59.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:01 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:01.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:01 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:01.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:01 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:01.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:01 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:01.956Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:38:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:03.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:03.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:03.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:03 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:03.752Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:38:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:05.361Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:38:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:05.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:05.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:05.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:05 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:05.563Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.234:36976
+Nov 19 10:38:06 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:06.146Z [TRACE] agent.server: rpc_server_call: method=Catalog.ListDatacenters errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false
+Nov 19 10:38:06 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:06.800Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.254:38824
+Nov 19 10:38:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:07.063Z [TRACE] agent.server: rpc_server_call: method=Catalog.ListDatacenters errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false
+Nov 19 10:38:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:07.362Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:07.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:07.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:07 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:07.554Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:38:09 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:09.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:09 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:09.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:09 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:09.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:10 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:10.627Z [INFO]  agent.server.raft.logstore.verifier: verification checksum OK: elapsed=1.807124ms leaderChecksum=b5ea8f4595251ce6 rangeEnd=194493 rangeStart=194307 readChecksum=b5ea8f4595251ce6
+Nov 19 10:38:10 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:10.924Z [TRACE] agent.tlsutil: IncomingGRPConfig: version=6
+Nov 19 10:38:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:11.062Z [TRACE] agent: [credentials]Allowing TLS connection from client with ALPN disabled. TLS connections with ALPN disabled will be disallowed in future grpc-go releases
+Nov 19 10:38:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:11.198Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Started processing request: request_id=6094e9d4-decf-d54d-cdcf-2886df41bfbc
+Nov 19 10:38:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:11.198Z [DEBUG] agent.server.grpc-api.peerstream.stream-resources: cannot establish a peering stream on a follower node: request_id=6094e9d4-decf-d54d-cdcf-2886df41bfbc
+Nov 19 10:38:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:11.198Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Finished processing request: request_id=6094e9d4-decf-d54d-cdcf-2886df41bfbc
+Nov 19 10:38:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:11.335Z [TRACE] agent: [transport][server-transport 0xc00114ec00] Closing: EOF
+Nov 19 10:38:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:11.335Z [TRACE] agent: [transport][server-transport 0xc00114ec00] loopyWriter exiting with error: transport closed by client
+Nov 19 10:38:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:11.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:11.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:11.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:11.573Z [TRACE] agent.server: rpc_server_call: method=Catalog.NodeServiceList errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:38:11 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:11.573Z [TRACE] agent.server: rpc_server_call: method=Health.NodeChecks errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:38:12 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:12.429Z [DEBUG] agent.http: Request finished: method=GET url=/v1/agent/metrics?format=prometheus from=10.0.3.42:34238 latency=15.460334ms
+Nov 19 10:38:12 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:12.429Z [DEBUG] agent: warning: request content-type is not supported: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:38:12 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:12.429Z [DEBUG] agent: warning: response content-type header not explicitly set.: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:38:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:13.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:13.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:13.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:13.805Z [TRACE] agent.server: rpc_server_call: method=ACL.TokenRead errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:38:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:13.806Z [TRACE] agent.server: rpc_server_call: method=ACL.PolicyResolve errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:38:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:13.807Z [TRACE] agent.server: rpc_server_call: method=Namespace.Read errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=false blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:38:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:13.816Z [TRACE] agent.server: rpc_server_call: method=ACL.TokenRead errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:38:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:13.817Z [TRACE] agent.server: rpc_server_call: method=ACL.PolicyResolve errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:38:13 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:13.818Z [TRACE] agent.server: rpc_server_call: method=Namespace.Read errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=false blocking=false target_datacenter=dc1 locality=local
+Nov 19 10:38:14 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:14.361Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:38:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:15.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:15.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:15 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:15.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:17 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:17.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:17 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:17.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:17 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:17.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:18 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:18.070Z [DEBUG] agent.server.memberlist.wan: memberlist: Initiating push/pull sync with: ip-10-0-3-234.dc1 10.0.3.234:8302
+Nov 19 10:38:18 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:18.798Z [DEBUG] agent.server.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-254 10.0.3.254:8301
+Nov 19 10:38:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:19.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:19.365Z [DEBUG] agent.server.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-115 10.0.3.115:8301
+Nov 19 10:38:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:19.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:19.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:19 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:19.597Z [DEBUG] agent.server.memberlist.wan: memberlist: Stream connection from=10.0.3.254:35222
+Nov 19 10:38:20 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:20.121Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:38:21 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:21.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:21 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:21.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:21 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:21.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:23 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:23.360Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:38:23 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:23.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:23 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:23.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:23 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:23.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:24 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:24.013Z [DEBUG] agent.router.manager: Rebalanced servers, new active server: number_of_servers=3 active_server="ip-10-0-3-254 (Addr: tcp/10.0.3.254:8300) (DC: dc1)"
+Nov 19 10:38:25 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:25.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:25 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:25.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:25 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:25.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:27.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:27.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:27.428Z [DEBUG] agent.http: Request finished: method=GET url=/v1/agent/metrics?format=prometheus from=10.0.3.42:34238 latency=15.232156ms
+Nov 19 10:38:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:27.428Z [DEBUG] agent: warning: request content-type is not supported: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:38:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:27.428Z [DEBUG] agent: warning: response content-type header not explicitly set.: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:38:27 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:27.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:29.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:29.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:29.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:29 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:29.575Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:38:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:31.157Z [TRACE] agent.server: rpc_server_call: method=Coordinate.Update errored=false request_type=write rpc_type=net/rpc leader=false target_datacenter=dc1 locality=local
+Nov 19 10:38:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:31.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:31.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:31 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:31.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:32 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:32.030Z [TRACE] agent.tlsutil: IncomingGRPConfig: version=6
+Nov 19 10:38:32 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:32.166Z [TRACE] agent: [credentials]Allowing TLS connection from client with ALPN disabled. TLS connections with ALPN disabled will be disallowed in future grpc-go releases
+Nov 19 10:38:32 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:32.300Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Started processing request: request_id=8a80227d-374e-bf93-51ac-0a52619099c0
+Nov 19 10:38:32 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:32.300Z [DEBUG] agent.server.grpc-api.peerstream.stream-resources: cannot establish a peering stream on a follower node: request_id=8a80227d-374e-bf93-51ac-0a52619099c0
+Nov 19 10:38:32 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:32.300Z [TRACE] agent.server.grpc-api.peerstream.stream-resources: Finished processing request: request_id=8a80227d-374e-bf93-51ac-0a52619099c0
+Nov 19 10:38:32 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:32.361Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:38:32 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:32.434Z [TRACE] agent: [transport][server-transport 0xc00114ec00] Closing: EOF
+Nov 19 10:38:32 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:32.434Z [TRACE] agent: [transport][server-transport 0xc00114ec00] loopyWriter exiting with error: transport closed by client
+Nov 19 10:38:33 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:33.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:33 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:33.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:33 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:33.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:35.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:35.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:35.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:35 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:35.564Z [DEBUG] agent.server.memberlist.lan: memberlist: Stream connection from=10.0.3.234:60708
+Nov 19 10:38:36 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:36.853Z [TRACE] agent.server: rpc_server_call: method=Catalog.ListDatacenters errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false
+Nov 19 10:38:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:37.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:37.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:37.497Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:37 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:37.554Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:38:38 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:38.311Z [TRACE] agent.server: rpc_server_call: method=Catalog.ListDatacenters errored=false request_type=read rpc_type=net/rpc leader=false allow_stale=true blocking=false
+Nov 19 10:38:39 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:39.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:39 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:39.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:39 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:39.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:41.182Z [TRACE] agent: [transport][server-transport 0xc00123c000] Closing: EOF
+Nov 19 10:38:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:41.183Z [TRACE] agent: [transport][server-transport 0xc00123c000] loopyWriter exiting with error: transport closed by client
+Nov 19 10:38:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:41.361Z [TRACE] agent.server.usage_metrics: Starting usage run
+Nov 19 10:38:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:41.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:41.366Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:41 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:41.498Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:42 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:42.428Z [DEBUG] agent.http: Request finished: method=GET url=/v1/agent/metrics?format=prometheus from=10.0.3.42:34238 latency=14.844503ms
+Nov 19 10:38:42 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:42.428Z [DEBUG] agent: warning: request content-type is not supported: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:38:42 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:42.428Z [DEBUG] agent: warning: response content-type header not explicitly set.: request-path=/v1/agent/metrics?format=prometheus
+Nov 19 10:38:43 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:43.363Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false
+Nov 19 10:38:43 ip-10-0-3-253 consul[3111]: 2025-11-19T10:38:43.367Z [TRACE] agent.server: rpc_server_call: method=Status.RaftStats errored=false request_type=read rpc_type=net/rpc leader=false

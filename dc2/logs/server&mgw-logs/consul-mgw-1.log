@@ -1,0 +1,141 @@
+Nov 19 10:36:01 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:01.278Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:36:09 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:09.302Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:36:11 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:11.279Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:36:18 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:18.638Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-204 10.0.3.204:8301
+Nov 19 10:36:21 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:21.280Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:36:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:31.281Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:36:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:31.623Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.3.204:54910
+Nov 19 10:36:34 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:34.634Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.4.227:53196
+Nov 19 10:36:37 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:37.558Z [DEBUG] agent: Skipping remote check since it is managed automatically: check=serfHealth
+Nov 19 10:36:37 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:37.558Z [DEBUG] agent: Node info in sync
+Nov 19 10:36:37 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:37.558Z [DEBUG] agent: Service in sync: service=default/default/mesh-gateway-i-07a00d706229d8936
+Nov 19 10:36:37 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:37.558Z [DEBUG] agent: Check in sync: check=default/default/service:mesh-gateway-i-07a00d706229d8936
+Nov 19 10:36:39 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:39.303Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:36:41 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:41.282Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:36:48 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:48.640Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-227 10.0.3.227:8301
+Nov 19 10:36:51 ip-10-0-3-64 consul[447]: 2025-11-19T10:36:51.282Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:37:01 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:01.283Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:37:04 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:04.637Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.4.227:35842
+Nov 19 10:37:09 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:09.304Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:37:11 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:11.285Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:37:18 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:18.643Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-227 10.0.3.227:8301
+Nov 19 10:37:21 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:21.285Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:37:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:31.286Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:37:34 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:34.640Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.4.227:47832
+Nov 19 10:37:37 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:37.907Z [DEBUG] agent: Skipping remote check since it is managed automatically: check=serfHealth
+Nov 19 10:37:37 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:37.907Z [DEBUG] agent: Node info in sync
+Nov 19 10:37:37 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:37.907Z [DEBUG] agent: Service in sync: service=default/default/mesh-gateway-i-07a00d706229d8936
+Nov 19 10:37:37 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:37.907Z [DEBUG] agent: Check in sync: check=default/default/service:mesh-gateway-i-07a00d706229d8936
+Nov 19 10:37:39 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:39.305Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:37:41 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:41.287Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:37:48 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:48.645Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-227 10.0.3.227:8301
+Nov 19 10:37:51 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:51.287Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:37:51 ip-10-0-3-64 consul[447]: 2025-11-19T10:37:51.508Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.3.227:55404
+Nov 19 10:38:01 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:01.288Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:38:04 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:04.643Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.4.227:53968
+Nov 19 10:38:09 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:09.305Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:38:11 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:11.289Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:38:13 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:13.416Z [TRACE] agent.envoy.xds.mesh_gateway: Invoking all xDS resource handlers and sending changed data if there are any: service_id=default/default/mesh-gateway-i-07a00d706229d8936 xdsVersion=v3
+Nov 19 10:38:18 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:18.647Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-204 10.0.3.204:8301
+Nov 19 10:38:21 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:21.290Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:38:21 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:21.511Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.3.227:59362
+Nov 19 10:38:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:31.291Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:38:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:31.633Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.3.204:39580
+Nov 19 10:38:39 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:39.306Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:38:41 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:41.291Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:38:48 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:48.649Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-227 10.0.3.227:8301
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [TRACE] agent.grpc.balancer: shuffling server order: target=consul://dc2.42348fb6-fe6d-4c38-bff7-a7e500e302cb/server.dc2
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [DEBUG] agent.grpc.balancer: switching server: target=consul://dc2.42348fb6-fe6d-4c38-bff7-a7e500e302cb/server.dc2 from=dc2-10.0.3.221:8300 to=dc2-10.0.3.227:8300
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [TRACE] agent: [core][Channel #1 SubChannel #65]Subchannel created
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [TRACE] agent: [core][Channel #1]Channel Connectivity change to CONNECTING
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [TRACE] agent: [core][Channel #1 SubChannel #63]Subchannel Connectivity change to SHUTDOWN
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [TRACE] agent: [core][Channel #1 SubChannel #63]Subchannel deleted
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [TRACE] agent: [transport][client-transport 0xc000ad2b48] GracefulClose called
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [TRACE] agent: [core][Channel #1 SubChannel #65]Subchannel Connectivity change to CONNECTING
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [TRACE] agent: [core][Channel #1 SubChannel #65]Subchannel picks a new address "dc2-10.0.3.227:8300" to connect
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [TRACE] agent.grpc.balancer: sub-connection state changed: target=consul://dc2.42348fb6-fe6d-4c38-bff7-a7e500e302cb/server.dc2 server=dc2-10.0.3.227:8300 state=CONNECTING
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [TRACE] agent.tlsutil: OutgoingRPCWrapper: version=5
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.687Z [TRACE] agent.tlsutil: OutgoingRPCConfig: version=5
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.688Z [TRACE] agent.tlsutil: OutgoingRPCConfig: version=5
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.690Z [DEBUG] agent.router.manager: Rebalanced servers, new active server: number_of_servers=3 active_server="ip-10-0-3-227 (Addr: tcp/10.0.3.227:8300) (DC: dc2)"
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.690Z [TRACE] agent: [core][Channel #1 SubChannel #65]Subchannel Connectivity change to READY
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.690Z [TRACE] agent.grpc.balancer: sub-connection state changed: target=consul://dc2.42348fb6-fe6d-4c38-bff7-a7e500e302cb/server.dc2 server=dc2-10.0.3.227:8300 state=READY
+Nov 19 10:38:50 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:50.690Z [TRACE] agent: [core][Channel #1]Channel Connectivity change to READY
+Nov 19 10:38:51 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:51.292Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:38:51 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:51.512Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.3.227:42140
+Nov 19 10:38:58 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:58.162Z [DEBUG] agent: Skipping remote check since it is managed automatically: check=serfHealth
+Nov 19 10:38:58 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:58.162Z [DEBUG] agent: Node info in sync
+Nov 19 10:38:58 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:58.162Z [DEBUG] agent: Service in sync: service=default/default/mesh-gateway-i-07a00d706229d8936
+Nov 19 10:38:58 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:58.162Z [DEBUG] agent: Check in sync: check=default/default/service:mesh-gateway-i-07a00d706229d8936
+Nov 19 10:38:58 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:58.591Z [TRACE] agent: [transport][client-transport 0xc00197c6c8] loopyWriter exiting with error: finished processing active streams while in draining mode
+Nov 19 10:38:58 ip-10-0-3-64 consul[447]: 2025-11-19T10:38:58.591Z [TRACE] agent: [transport][client-transport 0xc00197c6c8] Closing: connection error: desc = "error reading from server: read tcp 10.0.3.64:59952->10.0.3.204:8300: use of closed network connection"
+Nov 19 10:39:01 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:01.292Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:39:04 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:04.648Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.4.227:46502
+Nov 19 10:39:09 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:09.306Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:39:11 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:11.293Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:39:18 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:18.651Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-221 10.0.3.221:8301
+Nov 19 10:39:21 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:21.294Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:39:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:31.295Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:39:39 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:39.307Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:39:41 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:41.296Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:39:48 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:48.653Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-227 10.0.3.227:8301
+Nov 19 10:39:51 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:51.296Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:39:51 ip-10-0-3-64 consul[447]: 2025-11-19T10:39:51.517Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.3.227:59144
+Nov 19 10:40:01 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:01.296Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:40:05 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:05.925Z [DEBUG] agent: Skipping remote check since it is managed automatically: check=serfHealth
+Nov 19 10:40:05 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:05.925Z [DEBUG] agent: Node info in sync
+Nov 19 10:40:05 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:05.925Z [DEBUG] agent: Service in sync: service=default/default/mesh-gateway-i-07a00d706229d8936
+Nov 19 10:40:05 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:05.925Z [DEBUG] agent: Check in sync: check=default/default/service:mesh-gateway-i-07a00d706229d8936
+Nov 19 10:40:09 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:09.307Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:40:11 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:11.298Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:40:18 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:18.655Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-4-227 10.0.4.227:8301
+Nov 19 10:40:21 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:21.299Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:40:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:31.299Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:40:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:31.641Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.3.204:56528
+Nov 19 10:40:39 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:39.308Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:40:41 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:41.300Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:40:48 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:48.658Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-204 10.0.3.204:8301
+Nov 19 10:40:51 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:51.300Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:40:51 ip-10-0-3-64 consul[447]: 2025-11-19T10:40:51.521Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.3.227:54344
+Nov 19 10:41:01 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:01.301Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:41:09 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:09.309Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:41:11 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:11.302Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:41:14 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:14.485Z [TRACE] agent.grpc.balancer: shuffling server order: target=consul://dc2.42348fb6-fe6d-4c38-bff7-a7e500e302cb/server.dc2
+Nov 19 10:41:14 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:14.486Z [DEBUG] agent.router.manager: Rebalanced servers, new active server: number_of_servers=3 active_server="ip-10-0-3-227 (Addr: tcp/10.0.3.227:8300) (DC: dc2)"
+Nov 19 10:41:18 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:18.660Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-227 10.0.3.227:8301
+Nov 19 10:41:21 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:21.303Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:41:21 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:21.524Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.3.227:37848
+Nov 19 10:41:30 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:30.649Z [DEBUG] agent: Skipping remote check since it is managed automatically: check=serfHealth
+Nov 19 10:41:30 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:30.649Z [DEBUG] agent: Node info in sync
+Nov 19 10:41:30 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:30.649Z [DEBUG] agent: Service in sync: service=default/default/mesh-gateway-i-07a00d706229d8936
+Nov 19 10:41:30 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:30.649Z [DEBUG] agent: Check in sync: check=default/default/service:mesh-gateway-i-07a00d706229d8936
+Nov 19 10:41:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:31.304Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:41:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:31.644Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.3.204:45012
+Nov 19 10:41:39 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:39.309Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:41:41 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:41.305Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:41:48 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:48.663Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-4-227 10.0.4.227:8301
+Nov 19 10:41:51 ip-10-0-3-64 consul[447]: 2025-11-19T10:41:51.305Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:42:01 ip-10-0-3-64 consul[447]: 2025-11-19T10:42:01.306Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:42:09 ip-10-0-3-64 consul[447]: 2025-11-19T10:42:09.310Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:42:11 ip-10-0-3-64 consul[447]: 2025-11-19T10:42:11.307Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:42:18 ip-10-0-3-64 consul[447]: 2025-11-19T10:42:18.665Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-204 10.0.3.204:8301
+Nov 19 10:42:21 ip-10-0-3-64 consul[447]: 2025-11-19T10:42:21.307Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:42:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:42:31.308Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:42:39 ip-10-0-3-64 consul[447]: 2025-11-19T10:42:39.311Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:42:41 ip-10-0-3-64 consul[447]: 2025-11-19T10:42:41.309Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:42:48 ip-10-0-3-64 consul[447]: 2025-11-19T10:42:48.666Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-221 10.0.3.221:8301
+Nov 19 10:42:51 ip-10-0-3-64 consul[447]: 2025-11-19T10:42:51.310Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:43:01 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:01.311Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:43:01 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:01.649Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.3.204:51460
+Nov 19 10:43:07 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:07.783Z [DEBUG] agent: Skipping remote check since it is managed automatically: check=serfHealth
+Nov 19 10:43:07 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:07.783Z [DEBUG] agent: Node info in sync
+Nov 19 10:43:07 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:07.783Z [DEBUG] agent: Service in sync: service=default/default/mesh-gateway-i-07a00d706229d8936
+Nov 19 10:43:07 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:07.783Z [DEBUG] agent: Check in sync: check=default/default/service:mesh-gateway-i-07a00d706229d8936
+Nov 19 10:43:09 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:09.312Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state
+Nov 19 10:43:11 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:11.312Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:43:13 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:13.419Z [TRACE] agent.envoy.xds.mesh_gateway: Invoking all xDS resource handlers and sending changed data if there are any: service_id=default/default/mesh-gateway-i-07a00d706229d8936 xdsVersion=v3
+Nov 19 10:43:18 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:18.668Z [DEBUG] agent.client.memberlist.lan: memberlist: Initiating push/pull sync with: ip-10-0-3-227 10.0.3.227:8301
+Nov 19 10:43:21 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:21.313Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:43:31 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:31.314Z [DEBUG] agent: Check status updated: check=default/default/service:mesh-gateway-i-07a00d706229d8936 status=passing
+Nov 19 10:43:34 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:34.675Z [DEBUG] agent.client.memberlist.lan: memberlist: Stream connection from=10.0.4.227:38542
+Nov 19 10:43:39 ip-10-0-3-64 consul[447]: 2025-11-19T10:43:39.313Z [TRACE] agent.proxycfg.agent-state: syncing proxy services from local state

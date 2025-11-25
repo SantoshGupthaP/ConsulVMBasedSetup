@@ -133,21 +133,26 @@ MESH_EOF
   sudo pkill -f envoy || true
   sleep 3
 
-  # Create log file with proper permissions
-  sudo touch /var/log/envoy-mgw.log
-  sudo chmod 666 /var/log/envoy-mgw.log
+  # Create unique log file with proper permissions using instance ID
+  MGW_LOG="/var/log/envoy-mgw-$INSTANCE_ID.log"
+  sudo touch $MGW_LOG
+  sudo chmod 666 $MGW_LOG
+
+  # Generate unique service instance ID for this mesh gateway
+  MGW_INSTANCE_ID="mesh-gateway-$INSTANCE_ID"
 
   # Start mesh gateway with Envoy and improved error handling
-  echo "Starting mesh gateway with Envoy..."
+  echo "Starting mesh gateway with Envoy (Instance: $MGW_INSTANCE_ID)..."
   #TODO register it to background instead of running it once, that way machine restarts will also restart the gateway
   nohup consul connect envoy \
     -gateway mesh \
     -register \
     -service mesh-gateway \
+    -proxy-id "$MGW_INSTANCE_ID" \
     -address $PRIVATE_IP:8443 \
     -wan-address $PUBLIC_IP:8443 \
     -token "$CONSUL_HTTP_TOKEN" \
-    -- --log-level info > /var/log/envoy-mgw.log 2>&1 &
+    -- --log-level trace > $MGW_LOG 2>&1 &
 
   # Wait for registration
   sleep 15
@@ -169,8 +174,8 @@ MESH_EOF
   if ! consul catalog services | grep -q mesh-gateway; then
     echo "❌ Mesh gateway registration failed after multiple attempts"
     echo "Checking logs..."
-    tail -20 /var/log/envoy-mgw.log
+    tail -20 $MGW_LOG
     exit 1
   fi
 
-  echo "✅ Mesh gateway setup completed for ${CLUSTER_PREFIX}"
+  echo "✅ Mesh gateway setup completed for ${CLUSTER_PREFIX} (Instance: $MGW_INSTANCE_ID)"

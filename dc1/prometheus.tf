@@ -33,9 +33,9 @@ resource "aws_security_group" "prometheus_sg" {
 
 # # # Prometheus EC2 instance
 resource "aws_instance" "prometheus" {
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = var.instance_type
-  key_name               = aws_key_pair.minion-key.key_name
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = var.instance_type
+  key_name                    = aws_key_pair.minion-key.key_name
   associate_public_ip_address = true
   depends_on = [
     aws_instance.consul,
@@ -158,12 +158,6 @@ resource "aws_instance" "prometheus" {
         static_configs:
           - targets: [
               "${aws_instance.consul[2].private_ip}:8500"
-            ]
-      - job_name: 'Consul-Mesh-Gateway-Node'
-        # scrape_offset: 0s, use rule_query_offset instead
-        static_configs:
-          - targets: [
-              "${aws_instance.mgw_service[0].private_ip}:9100"
             ]
     EOC
 

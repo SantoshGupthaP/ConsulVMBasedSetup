@@ -4,11 +4,20 @@ terraform {
       source  = "hashicorp/aws"
       version = "6.0"  # Use stable version
     }
+    consul = {
+      source  = "hashicorp/consul"
+      version = "2.22.1"
+    }
   }
 }
 
 provider "aws" {
   region = var.region
+}
+
+provider "consul" {
+  address = "http://${aws_instance.consul[0].public_ip}:8500"
+  token   = var.consul_token
 }
 
 # create vpc
@@ -68,6 +77,14 @@ resource "aws_security_group" "consul_sg" {
   ingress {
     from_port       = 8443
     to_port         = 8443
+    protocol        = "tcp"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
+  # Consul gRPC (used for xDS and streaming)
+  ingress {
+    from_port       = 8502
+    to_port         = 8502
     protocol        = "tcp"
     cidr_blocks     = ["0.0.0.0/0"]
   }
@@ -171,6 +188,62 @@ resource "aws_instance" "consul" {
   vpc_security_group_ids = [aws_security_group.consul_sg.id]
   # associate the public subnet with the instance
   subnet_id = module.vpc.public_subnets[0]
+}
+
+
+# Wait for Consul to be ready before creating admin partitions
+resource "null_resource" "wait_for_consul" {
+  depends_on = [aws_instance.consul]
+
+  provisioner "local-exec" {
+    command = <<-EOF
+      for i in {1..30}; do
+        if curl -s http://${aws_instance.consul[0].public_ip}:8500/v1/status/leader | grep -q ":"; then
+          echo "Consul is ready"
+          exit 0
+        fi
+        echo "Waiting for Consul to be ready... attempt $i"
+        sleep 10
+      done
+      echo "Consul did not become ready in time"
+      exit 1
+    EOF
+  }
+}
+
+resource "consul_admin_partition" "global" {
+  name        = "global"
+  description = "Global partition for testing scale of service exports on Consul"
+
+  depends_on = [null_resource.wait_for_consul]
+}
+
+resource "consul_config_entry" "mesh_default" {
+  name      = "mesh"
+  kind      = "mesh"
+  partition = "default"
+
+  config_json = jsonencode({
+    Peering = {
+      PeerThroughMeshGateways = false
+    }
+  })
+
+  depends_on = [null_resource.wait_for_consul]
+}
+
+resource "consul_config_entry" "mesh" {
+  name      = "mesh"
+  kind      = "mesh"
+  partition = "global"
+
+  config_json = jsonencode({
+    Peering = {
+      PeerThroughMeshGateways = false
+    }
+  })
+
+  depends_on = [consul_admin_partition.global]
 }
 
 resource "aws_security_group" "load_generator" {

@@ -6,9 +6,9 @@ output "ssh_to_consul" {
   value = [for i in aws_instance.consul : "ssh -i c1-key.pem ubuntu@${i.public_ip}"]
 }
 
-output "ssh_to_mgw" {
-  value = [for i in aws_instance.mgw_service : "ssh -i c1-key.pem ubuntu@${i.public_ip}"]
-}
+# output "ssh_to_mgw" {
+#   value = [for i in aws_instance.mgw_service : "ssh -i c1-key.pem ubuntu@${i.public_ip}"]
+# }
 
 output "CONSUL_HTTP_ADDR" {
   value = <<CONFIGURATION
@@ -28,10 +28,10 @@ output "ssh_to_grafana" {
   value       = "ssh -i c1-key.pem ubuntu@${aws_instance.grafana.public_ip}"
 }
 
-# output "grafana_default_login" {
-#   description = "Default Grafana login credentials"
-#   value       = "Username: admin, Password: admin (unless changed during provisioning)"
-# }
+output "grafana_default_login" {
+  description = "Default Grafana login credentials"
+  value       = "Username: admin, Password: admin (unless changed during provisioning)"
+}
 
 output "prometheus_ui_url" {
   description = "Prometheus Web UI URL"

@@ -159,12 +159,6 @@ resource "aws_instance" "prometheus" {
           - targets: [
               "${aws_instance.consul[2].private_ip}:8500"
             ]
-      - job_name: 'Consul-Mesh-Gateway-Node'
-        # scrape_offset: 0s, use rule_query_offset instead
-        static_configs:
-          - targets: [
-              "${aws_instance.mgw_service[0].private_ip}:9100"
-            ]
     EOC
 
     # Create systemd service for Prometheus
