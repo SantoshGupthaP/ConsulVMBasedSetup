@@ -1,1 +1,3 @@
 .terraform*
+dc1/logs
+dc1/newLogs
