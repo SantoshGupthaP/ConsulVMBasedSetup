@@ -21,7 +21,11 @@ acl {
 
 license_path = "/etc/consul.d/license.hclic"
 
-log_level = "TRACE"
+# Logging configuration
+log_level = "INFO"
+log_file = "/var/log/consul/consul.log"
+log_rotate_duration = "24h"
+log_rotate_max_files = 7
 
 server = true
 ui = true

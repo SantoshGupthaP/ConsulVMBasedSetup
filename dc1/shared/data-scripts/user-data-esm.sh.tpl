@@ -44,11 +44,19 @@ rm consul-esm_${esm_version}_linux_amd64.zip
 # Create ESM config directory
 mkdir -p /etc/consul-esm
 
+# Create log directory for ESM
+sudo mkdir -p /var/log/consul-esm
+sudo chmod 755 /var/log/consul-esm
+# Pre-create log file with readable permissions for Promtail
+sudo touch /var/log/consul-esm/consul-esm.log
+sudo chmod 644 /var/log/consul-esm/consul-esm.log
+
 # Create proper ESM configuration for version 0.7.1
 cat << EOF | sudo  tee /etc/consul-esm/config.hcl > /dev/null
-# Consul ESM Configuration for version ${esm_version}
+# Consul ESM Configuration for version $${esm_version}
 log_level = "INFO"
 enable_syslog = false
+log_file = "/var/log/consul-esm/consul-esm.log"
 
 instance_id = "${instanceid}"
 # For emitting Consul ESM metrics to Prometheus
@@ -116,6 +124,9 @@ ExecReload=/bin/kill -HUP \$MAINPID
 KillMode=process
 Restart=on-failure
 LimitNOFILE=65536
+StandardOutput=journal+console
+StandardError=journal+console
+SyslogIdentifier=consul-esm
 
 [Install]
 WantedBy=multi-user.target

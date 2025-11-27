@@ -44,3 +44,21 @@ variable "envoy_version" {
   # default     = "1.27.7"
 }
 
+variable "domain_name" {
+  description = "Subdomain name for Consul (e.g., consul-dc2.example.com). If provided, HTTPS will be configured."
+  type        = string
+  default     = ""
+}
+
+variable "hosted_zone_name" {
+  description = "Route53 hosted zone name (e.g., example.com). Required if domain_name is provided."
+  type        = string
+  default     = ""
+}
+
+variable "enable_consul_alb" {
+  description = "Enable Application Load Balancer for Consul cluster"
+  type        = bool
+  default     = true
+}
+

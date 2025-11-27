@@ -52,36 +52,13 @@ resource "aws_instance" "grafana" {
   vpc_security_group_ids = [aws_security_group.consul_sg.id, aws_security_group.grafana_sg.id]
   subnet_id              = module.vpc.public_subnets[0]
 
-  user_data = <<-EOF
-    #!/bin/bash
-    sudo apt-get update
-    sudo apt-get install -y apt-transport-https software-properties-common wget
-    wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
-    echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
-    sudo apt-get update
-    sudo apt-get install -y grafana
+  user_data = templatefile("${path.module}/shared/data-scripts/user-data-grafana.sh", {
+    consul_private_ip = aws_instance.consul[0].private_ip
+    prometheus_private_ip = aws_instance.prometheus.private_ip
+    loki_private_ip = aws_instance.loki.private_ip
+  })
 
-    sudo systemctl enable grafana-server
-    sudo systemctl start grafana-server
-
-    # Install Consul datasource plugin (optional, for advanced dashboards)
-    # sudo grafana-cli plugins install grafana-consul-datasource
-    # sudo systemctl restart grafana-server
-
-    # Configure Consul datasource via provisioning (recommended)
-    sudo mkdir -p /etc/grafana/provisioning/datasources
-    cat <<EOD | sudo tee /etc/grafana/provisioning/datasources/consul.yaml
-    apiVersion: 1
-    datasources:
-      - name: Consul
-        type: grafana-consul-datasource
-        access: proxy
-        url: http://${aws_instance.consul[0].private_ip}:8500
-        isDefault: false
-    EOD
-
-    sudo systemctl restart grafana-server
-  EOF
+  depends_on = [aws_instance.consul, aws_instance.prometheus, aws_instance.loki]
 }
 
 // ...existing code...

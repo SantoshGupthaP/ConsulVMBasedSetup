@@ -72,6 +72,13 @@ sudo tee $CONSULCONFIGDIR/license.hclic <<EOF
 EOF
 sudo chmod a+r $CONSULCONFIGDIR/license.hclic
 
+# Create Consul log directory
+sudo mkdir -p /var/log/consul
+sudo chown consul:consul /var/log/consul
+sudo chmod 755 /var/log/consul
+# Set group-readable permissions for log files so Promtail can read them
+sudo chmod g+r /var/log/consul/ 2>/dev/null || true
+
 # Copy CA files to current directory
 sudo cp /ops/shared/certs/consul-agent-ca.pem .
 sudo cp /ops/shared/certs/consul-agent-ca-key.pem .
@@ -89,6 +96,16 @@ sudo chmod a+rw /ops/shared/certs/dc1-server-consul-0.pem
 sudo chmod a+rw /ops/shared/certs/dc1-server-consul-0-key.pem
 echo "Consul client TLS certs and keys are set up in /ops/shared/certs"
 
+# Configure systemd to not suppress Consul logs
+sudo mkdir -p /etc/systemd/system/consul.service.d
+sudo tee /etc/systemd/system/consul.service.d/override.conf > /dev/null <<EOF
+[Service]
+StandardOutput=journal+console
+StandardError=journal+console
+SyslogIdentifier=consul
+EOF
+
+sudo systemctl daemon-reload
 sudo systemctl enable consul.service
 sudo systemctl start consul.service
 sleep 10

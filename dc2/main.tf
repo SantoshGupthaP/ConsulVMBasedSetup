@@ -89,6 +89,14 @@ resource "aws_security_group" "consul_sg" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 
+  # Consul gRPC TLS (used for cluster peering)
+  ingress {
+    from_port       = 8503
+    to_port         = 8503
+    protocol        = "tcp"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
   # envoy admin
   ingress {
     from_port       = 19000
@@ -354,4 +362,68 @@ resource "local_file" "minion-key" {
   content         = tls_private_key.pk.private_key_pem
   filename        = "./c2-key.pem"
   file_permission = "0400"
+}
+
+# Install Promtail on Consul servers after Loki is ready
+resource "null_resource" "install_promtail_consul" {
+  count      = 3
+  depends_on = [aws_instance.consul, aws_instance.loki, null_resource.wait_for_consul]
+
+  triggers = {
+    consul_instance_id = aws_instance.consul[count.index].id
+    loki_instance_id   = aws_instance.loki.id
+  }
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = tls_private_key.pk.private_key_pem
+    host        = aws_instance.consul[count.index].public_ip
+  }
+
+  provisioner "file" {
+    source      = "${path.module}/shared/scripts/install-promtail-consul.sh"
+    destination = "/tmp/install-promtail-consul.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/install-promtail-consul.sh",
+      "/tmp/install-promtail-consul.sh ${aws_instance.loki.private_ip} ${count.index}"
+    ]
+  }
+}
+
+# Install Promtail on ESM instances after Loki is ready
+resource "null_resource" "install_promtail_esm" {
+  count      = 3
+  depends_on = [aws_instance.esm, aws_instance.loki]
+
+  triggers = {
+    esm_instance_id  = aws_instance.esm[count.index].id
+    loki_instance_id = aws_instance.loki.id
+  }
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = tls_private_key.pk.private_key_pem
+    host        = aws_instance.esm[count.index].public_ip
+  }
+
+  provisioner "file" {
+    source      = "${path.module}/shared/scripts/install-promtail-esm.sh"
+    destination = "/tmp/install-promtail-esm.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "set -e",
+      "echo 'Waiting for ESM instance to complete initialization...'",
+      "timeout 300 bash -c 'until [ -f /var/log/user-data.log ] && sudo grep -q \"consul-esm\" /var/log/user-data.log 2>/dev/null; do echo \"Waiting for user-data to complete...\"; sleep 10; done' || true",
+      "sleep 30",
+      "chmod +x /tmp/install-promtail-esm.sh",
+      "/tmp/install-promtail-esm.sh ${aws_instance.loki.private_ip} ${count.index}"
+    ]
+  }
 }

@@ -51,3 +51,13 @@ output "ssh_to_load_generator" {
 output "Private_IPs_of_Worker_Nodes" {
   value = [for i in aws_instance.workload : "${i.private_ip}"]
 }
+
+output "loki_ui_url" {
+  description = "Loki Web UI URL"
+  value       = "http://${aws_instance.loki.public_ip}:3100"
+}
+
+output "ssh_to_loki" {
+  description = "SSH command to connect to Loki EC2 instance"
+  value       = "ssh -i c1-key.pem ubuntu@${aws_instance.loki.public_ip}"
+}
