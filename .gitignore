@@ -1,1 +1,13 @@
 .terraform*
+
+# Log files
+*.log
+logs/
+newLogs/
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Key files
+*.pem
