@@ -40,7 +40,7 @@ resource "aws_security_group" "workload" {
 }
 
 resource "aws_instance" "workload" {
-  count                  = 3
+  count                  = 6
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   key_name               = aws_key_pair.minion-key.key_name

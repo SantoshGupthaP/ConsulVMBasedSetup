@@ -44,11 +44,14 @@ rm consul-esm_${esm_version}_linux_amd64.zip
 # Create ESM config directory
 mkdir -p /etc/consul-esm
 
-# Create log directory for ESM
+# Create log directory for ESM with proper permissions for Promtail
 sudo mkdir -p /var/log/consul-esm
 sudo chmod 755 /var/log/consul-esm
 # Pre-create log file with readable permissions for Promtail
 sudo touch /var/log/consul-esm/consul-esm.log
+sudo chmod 644 /var/log/consul-esm/consul-esm.log
+# Set group ownership to adm so promtail user can read logs
+sudo chgrp adm /var/log/consul-esm/consul-esm.log
 sudo chmod 644 /var/log/consul-esm/consul-esm.log
 
 # Create proper ESM configuration for version 0.7.1
@@ -119,6 +122,8 @@ ConditionFileNotEmpty=/etc/consul-esm/config.hcl
 Type=simple
 User=root
 Group=root
+# Ensure log file has proper permissions before starting
+ExecStartPre=/bin/sh -c 'touch /var/log/consul-esm/consul-esm.log && chown root:adm /var/log/consul-esm/consul-esm.log && chmod 644 /var/log/consul-esm/consul-esm.log'
 ExecStart=/usr/local/bin/consul-esm -config-file=/etc/consul-esm/config.hcl
 ExecReload=/bin/kill -HUP \$MAINPID
 KillMode=process
@@ -132,14 +137,34 @@ SyslogIdentifier=consul-esm
 WantedBy=multi-user.target
 EOF
 
-# Create ESM log directory
+# Create ESM log directory with proper permissions
 sudo mkdir -p /var/log/consul-esm
-chown root:root /var/log/consul-esm
+chown root:adm /var/log/consul-esm
+chmod 755 /var/log/consul-esm
+# Ensure log file has proper permissions for promtail access
+touch /var/log/consul-esm/consul-esm.log
+chown root:adm /var/log/consul-esm/consul-esm.log
+chmod 644 /var/log/consul-esm/consul-esm.log
 
 # Start ESM service
 systemctl daemon-reload
 systemctl enable consul-esm
 systemctl start consul-esm
+
+# Setup logrotate for ESM logs to maintain proper permissions
+cat << EOF | sudo tee /etc/logrotate.d/consul-esm > /dev/null
+/var/log/consul-esm/*.log {
+    daily
+    missingok
+    rotate 7
+    compress
+    notifempty
+    create 644 root adm
+    postrotate
+        systemctl reload consul-esm > /dev/null 2>&1 || true
+    endscript
+}
+EOF
 
 
 echo "Consul ESM setup complete!"

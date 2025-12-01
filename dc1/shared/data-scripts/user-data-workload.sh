@@ -16,17 +16,18 @@ mkdir -p /opt/app
 
 cat << 'PY_SCRIPT' > /opt/app/workload_app.py
 from flask import Flask, make_response
-import random
 
 app = Flask(__name__)
 
 @app.route('/health')
 def health_check():
-    if random.random() < 0.95:
-        return make_response("OK", 200)
-    else:
-        return make_response("Service Unavailable", 503)
+    return make_response("OK", 200)
 PY_SCRIPT
 
 cd /opt/app
-nohup gunicorn --workers 2 --bind 0.0.0.0:8080 workload_app:app &
+nohup gunicorn --workers 8 --threads 2 --worker-class gthread \
+  --timeout 30 --backlog 2048 \
+  --bind 0.0.0.0:8080 \
+  --access-logfile /opt/app/access.log \
+  --error-logfile /opt/app/error.log \
+  workload_app:app &
