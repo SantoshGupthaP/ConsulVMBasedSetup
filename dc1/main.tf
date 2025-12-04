@@ -8,6 +8,14 @@ terraform {
       source  = "hashicorp/consul"
       version = "2.22.1"
     }
+    grafana = {
+      source  = "grafana/grafana"
+      version = "~> 3.0"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = "~> 0.12"
+    }
   }
 }
 
@@ -192,13 +200,13 @@ resource "aws_instance" "consul" {
   }
 
   user_data = templatefile("${path.module}/shared/data-scripts/user-data-server.sh", {
-    server_count      = 3
-    region            = var.region
-    cloud_env         = "aws"
-    retry_join        = var.retry_join
-    consul_version    = var.consul_version
-    envoy_version     = var.envoy_version
-    application_name  = "${var.name_prefix}-consul-server"
+    server_count     = 3
+    region           = var.region
+    cloud_env        = "aws"
+    retry_join       = var.retry_join
+    consul_version   = var.consul_version
+    envoy_version    = var.envoy_version
+    application_name = "${var.name_prefix}-consul-server"
   })
 
   vpc_security_group_ids = [aws_security_group.consul_sg.id]
@@ -262,21 +270,21 @@ resource "consul_config_entry" "mesh" {
 }
 
 resource "consul_config_entry" "exported_services" {
-    name = "global"
-    kind = "exported-services"
-    partition = "global"
+  name      = "global"
+  kind      = "exported-services"
+  partition = "global"
 
-    config_json = jsonencode({
-        Services = [{
-            Name = "*"
-            Namespace = "*"
-            Consumers = [{
-                Peer = "dc2"
-            }]
-        }]
-    })
+  config_json = jsonencode({
+    Services = [{
+      Name      = "*"
+      Namespace = "*"
+      Consumers = [{
+        Peer = "dc2"
+      }]
+    }]
+  })
 
-    depends_on = [consul_admin_partition.global, null_resource.wait_for_consul]
+  depends_on = [consul_admin_partition.global, null_resource.wait_for_consul]
 }
 
 resource "aws_security_group" "load_generator" {

@@ -8,26 +8,71 @@ sudo apt-get update -y
 # jq is required for load/stress test scripts, other tools are optional
 sudo apt-get install -y unzip tree redis-tools jq curl tmux
 
-sudo apt-get install -y python3 python3-pip
+# Install Go
+GO_VERSION="1.21.5"
+sudo rm -rf /usr/local/go
+wget -O go.tar.gz https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go.tar.gz
+rm go.tar.gz
 
-pip3 install flask gunicorn
+export PATH=$PATH:/usr/local/go/bin
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 
 mkdir -p /opt/app
 
-cat << 'PY_SCRIPT' > /opt/app/workload_app.py
-from flask import Flask, make_response
+cat << 'GO_SCRIPT' > /opt/app/main.go
+package main
 
-app = Flask(__name__)
+import (
+    "fmt"
+    "net/http"
+    "os"
+    "runtime"
+    "time"
+)
 
-@app.route('/health')
-def health_check():
-    return make_response("OK", 200)
-PY_SCRIPT
+func healthHandler(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Content-Type", "text/plain")
+    w.WriteHeader(http.StatusOK)
+    w.Write([]byte("OK"))
+}
+
+func main() {
+    runtime.GOMAXPROCS(runtime.NumCPU())
+    
+    mux := http.NewServeMux()
+    mux.HandleFunc("/health", healthHandler)
+    mux.HandleFunc("/", healthHandler)
+    
+    server := &http.Server{
+        Addr:              ":8080",
+        Handler:           mux,
+        ReadTimeout:       5 * time.Second,
+        WriteTimeout:      10 * time.Second,
+        IdleTimeout:       15 * time.Second,
+        ReadHeaderTimeout: 2 * time.Second,
+        MaxHeaderBytes:    1 << 20,
+    }
+    
+    fmt.Printf("Starting Go health service on :8080 with %d CPUs\n", runtime.NumCPU())
+    
+    if err := server.ListenAndServe(); err != nil {
+        fmt.Printf("Server failed to start: %v\n", err)
+        os.Exit(1)
+    }
+}
+GO_SCRIPT
+
+cat << 'GO_MOD' > /opt/app/go.mod
+module health-service
+
+go 1.21
+GO_MOD
 
 cd /opt/app
-nohup gunicorn --workers 8 --threads 2 --worker-class gthread \
-  --timeout 30 --backlog 2048 \
-  --bind 0.0.0.0:8080 \
-  --access-logfile /opt/app/access.log \
-  --error-logfile /opt/app/error.log \
-  workload_app:app &
+
+# Build and start the Go application
+/usr/local/go/bin/go build -o health-service main.go
+nohup ./health-service > /opt/app/health-service.log 2>&1 &
+
+echo "Started Go health service"

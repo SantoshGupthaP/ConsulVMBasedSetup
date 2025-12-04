@@ -31,7 +31,7 @@ resource "aws_security_group" "grafana_sg" {
   }
 }
 
-# # Grafana EC2 instance
+# Grafana EC2 instance
 resource "aws_instance" "grafana" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
@@ -53,12 +53,49 @@ resource "aws_instance" "grafana" {
   subnet_id              = module.vpc.public_subnets[0]
 
   user_data = templatefile("${path.module}/shared/data-scripts/user-data-grafana.sh", {
-    consul_private_ip = aws_instance.consul[0].private_ip
+    consul_private_ip     = aws_instance.consul[0].private_ip
     prometheus_private_ip = aws_instance.prometheus.private_ip
-    loki_private_ip = aws_instance.loki.private_ip
+    loki_private_ip       = aws_instance.loki.private_ip
   })
 
   depends_on = [aws_instance.consul, aws_instance.prometheus, aws_instance.loki]
+}
+
+# Grafana Provider Configuration
+provider "grafana" {
+  url  = "http://${aws_instance.grafana.public_ip}:3000"
+  auth = "admin:admin" # Default credentials - should be changed in production
+}
+
+# Wait for Grafana to be ready
+resource "time_sleep" "wait_for_grafana" {
+  depends_on      = [aws_instance.grafana]
+  create_duration = "120s" # Wait for Grafana to initialize
+}
+
+# Create Prometheus data source
+resource "grafana_data_source" "prometheus" {
+  type = "prometheus"
+  name = "Prometheus-1"
+  url  = "http://${aws_instance.prometheus.private_ip}:9090"
+  
+  is_default = true
+
+  json_data_encoded = jsonencode({
+    httpMethod    = "GET"
+    timeInterval  = "15s"
+  })
+
+  depends_on = [time_sleep.wait_for_grafana]
+}
+
+# Create ESM Dashboard
+resource "grafana_dashboard" "esm_dashboard" {
+  config_json = templatefile("${path.module}/shared/config/esm-dashboard.json", {
+    datasource_uid = grafana_data_source.prometheus.uid
+  })
+
+  depends_on = [grafana_data_source.prometheus]
 }
 
 // ...existing code...

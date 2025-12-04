@@ -5,6 +5,11 @@ variable "esm_version" {
   default     = "0.9.0" # "1.6.0"
 }
 
+variable "consul_esm_instance_type" {
+  description = "EC2 instance type"
+  default     = "m6i.4xlarge"
+}
+
 variable "node_exporter_version" {
   description = "Node Exporter version for ESM monitoring"
   type        = string

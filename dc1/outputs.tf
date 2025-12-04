@@ -23,6 +23,11 @@ output "grafana_ui_url" {
   value       = "http://${aws_instance.grafana.public_ip}:3000"
 }
 
+output "grafana_esm_dashboard_url" {
+  description = "Direct URL to ESM Custom Dashboard"
+  value       = "http://${aws_instance.grafana.public_ip}:3000/d/${grafana_dashboard.esm_dashboard.uid}"
+}
+
 output "ssh_to_grafana" {
   description = "SSH command to connect to Grafana EC2 instance"
   value       = "ssh -i c1-key.pem ubuntu@${aws_instance.grafana.public_ip}"

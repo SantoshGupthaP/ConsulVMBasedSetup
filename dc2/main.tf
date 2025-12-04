@@ -8,6 +8,14 @@ terraform {
       source  = "hashicorp/consul"
       version = "2.22.1"
     }
+    grafana = {
+      source  = "grafana/grafana"
+      version = "~> 3.0"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = "~> 0.12"
+    }
   }
 }
 

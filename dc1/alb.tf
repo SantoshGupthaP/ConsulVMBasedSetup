@@ -95,7 +95,7 @@ resource "aws_lb" "consul" {
   subnets            = module.vpc.public_subnets
 
   enable_deletion_protection = false
-  enable_http2              = true
+  enable_http2               = true
 
   tags = {
     Name = "${var.name_prefix}-consul-alb"

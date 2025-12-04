@@ -206,7 +206,7 @@ resource "aws_ssm_parameter" "esm_config" {
 # Launch instance for ESM
 resource "aws_instance" "esm" {
   ami                         = data.aws_ami.ubuntu.id
-  instance_type               = var.consul_instance_type
+  instance_type               = var.consul_esm_instance_type
   count                       = 3
   key_name                    = aws_key_pair.minion-key.key_name
   subnet_id                   = module.vpc.public_subnets[0]
