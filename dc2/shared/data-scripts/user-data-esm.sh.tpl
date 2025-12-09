@@ -56,58 +56,15 @@ sudo chmod 644 /var/log/consul-esm/consul-esm.log
 
 # Create proper ESM configuration for version 0.7.1
 cat << EOF | sudo  tee /etc/consul-esm/config.hcl > /dev/null
-# Consul ESM Configuration for version $${esm_version}
+# Consul ESM Configuration for version \${esm_version}
 log_level = "INFO"
 enable_syslog = false
+# Enable file-based logging with rotation
 log_file = "/var/log/consul-esm/consul-esm.log"
+log_rotate_duration = "24h"
+log_rotate_max_files = 30
 
-# instance_id = "consul-esm-${environment}"
-# For emitting Consul ESM metrics to Prometheus
-client_address = "0.0.0.0:8080"
-# service registration 
-consul_service = "consul-esm"
-consul_service_tag = "consul-external-service-monitor-tag"
-
-consul_kv_path = "consul-esm/"
-
-# External node metadata - Standard ESM detection keys
-external_node_meta {
-  "external-node" = "true"
-}
-
-# Basic ESM settings
-node_reconnect_timeout = "72h"
-node_probe_interval = "${ping_interval}"
-# node_probe_interval = "10s"
-disable_coordinate_updates = false
-
-enable_agentless = true
-
-# Consul connection configuration
-
-# The address of the Consul server to use if enable_agentless is set to true.
-# Can also be provided through the CONSUL_HTTP_ADDR environment variable.
-http_addr = "${consul_address}:8500"
-
-# The ACL token to use when communicating with the local Consul agent. Can
-# also be provided through the CONSUL_HTTP_TOKEN environment variable.
-token = "${consul_token}"
-#token = "e95b599e-166e-7d80-08ad-aee76e7ddf19"
-
-# The Consul datacenter to use.
-datacenter = "dc2"
-
-# The target Admin Partition to use.
-# Can also be provided through the CONSUL_PARTITION environment variable.
-partition = "global"
-
-# Telemetry configuration
-telemetry {
-  disable_hostname = false
-  prometheus_retention_time = "24h"
-  filter_default = true
-}
-EOF
+instance_id = "${instanceid}"
 
 # Create ESM service with enhanced configuration
 cat << EOF | sudo tee /etc/systemd/system/consul-esm.service > /dev/null
@@ -122,15 +79,17 @@ ConditionFileNotEmpty=/etc/consul-esm/config.hcl
 Type=simple
 User=root
 Group=root
-# Ensure log file has proper permissions before starting
-ExecStartPre=/bin/sh -c 'touch /var/log/consul-esm/consul-esm.log && chown root:adm /var/log/consul-esm/consul-esm.log && chmod 644 /var/log/consul-esm/consul-esm.log'
+# Ensure log directory has proper permissions before starting
+ExecStartPre=/bin/sh -c 'mkdir -p /var/log/consul-esm && chown root:adm /var/log/consul-esm && chmod 755 /var/log/consul-esm'
+# Let ESM handle its own file logging
 ExecStart=/usr/local/bin/consul-esm -config-file=/etc/consul-esm/config.hcl
 ExecReload=/bin/kill -HUP \$MAINPID
 KillMode=process
 Restart=on-failure
+RestartSec=10
 LimitNOFILE=65536
-StandardOutput=journal+console
-StandardError=journal+console
+StandardOutput=journal
+StandardError=journal
 SyslogIdentifier=consul-esm
 
 [Install]
@@ -151,20 +110,21 @@ systemctl daemon-reload
 systemctl enable consul-esm
 systemctl start consul-esm
 
-# Setup logrotate for ESM logs to maintain proper permissions
-cat << EOF | sudo tee /etc/logrotate.d/consul-esm > /dev/null
-/var/log/consul-esm/*.log {
-    daily
-    missingok
-    rotate 7
-    compress
-    notifempty
-    create 644 root adm
-    postrotate
-        systemctl reload consul-esm > /dev/null 2>&1 || true
-    endscript
-}
+# Setup file permissions management script for ESM logs
+cat << 'EOF' | sudo tee /usr/local/bin/fix-esm-log-perms.sh > /dev/null
+#!/bin/bash
+# Fix permissions for all ESM log files
+find /var/log/consul-esm -name "consul-esm*.log*" -type f -exec chown root:adm {} \;
+find /var/log/consul-esm -name "consul-esm*.log*" -type f -exec chmod 644 {} \;
 EOF
+
+sudo chmod +x /usr/local/bin/fix-esm-log-perms.sh
+
+# Create cron job to fix permissions hourly for any new log files
+echo "0 * * * * root /usr/local/bin/fix-esm-log-perms.sh > /dev/null 2>&1" | sudo tee -a /etc/crontab
+
+# Remove old logrotate config that conflicts with ESM's rotation
+sudo rm -f /etc/logrotate.d/consul-esm
 
 
 echo "Consul ESM setup complete!"

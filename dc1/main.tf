@@ -129,6 +129,15 @@ resource "aws_security_group" "consul_sg" {
     self      = true
   }
 
+  # Allow traffic from ESM instances
+  ingress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    security_groups = [aws_security_group.esm.id]
+    description     = "Allow all traffic from ESM instances"
+  }
+
   egress {
     from_port   = 0
     to_port     = 0

@@ -5,7 +5,7 @@ set -ex
 
 # Install necessary packages
 sudo apt-get update -y
-sudo apt-get install -y wget unzip jq
+sudo apt-get install -y wget unzip jq gpg coreutils
 
 # # Start SSM agent
 # systemctl enable amazon-ssm-agent
@@ -34,6 +34,95 @@ EOF
 # Start node_exporter
 systemctl enable node_exporter
 systemctl start node_exporter
+
+# Install Consul Enterprise
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt-get update && sudo apt-get install -y consul-enterprise
+
+# Create Consul directories
+sudo mkdir -p /etc/consul.d
+sudo mkdir -p /opt/consul
+
+# Install license file
+sudo tee /etc/consul.d/license.hclic <<EOF
+02MV4UU43BK5HGYYTOJZWFQMTMNNEWU33JJV5FM3KOI5NGQWSEM52FUR2ZGVGUGMLLLFKFKM2MKRAXQWSEMN2E23K2NBHHURTKLJDVCM2ZPJTXOSLJO5UVSM2WPJSEOOLULJMEUZTBK5IWST3JJJUVSMSKNRNGURJTJ5JTC3C2IRHGWTCUIJUFURCFORHHU2ZSJZUTC2COI5KTEWTKJF4U42SBPBNFIVLJJRBUU4DCNZHDAWKXPBZVSWCSOBRDENLGMFLVC2KPNFEXCSLJO5UWCWCOPJSFOVTGMRDWY5C2KNETMSLKJF3U22SRORGUI23UJVCEUVKNIRRTMTKEJE3E4RCVOVGUI2ZQJV5FKMCPIRVTGV3JJFZUS3SOGBMVQSRQLAZVE4DCK5KWST3JJF4U2RCJGBGFIQJVJRKEC6CWIRAXOT3KIF3U62SBO5LWSSLTJFWVMNDDI5WHSWKYKJYGEMRVMZSEO3DULJJUSNSJNJEXOTLKKV2E2VCJORGXURSVJVCECNSNIRATMTKEIJQUS2LXNFSEOVTZMJLWY5KZLBJHAYRSGVTGIR3MORNFGSJWJFVES52NNJKXITKUJF2E26SGKVGUIQJWJVCECNSNIRBGCSLJO5UWGSCKOZNEQVTKMRBUSNSJNVHHMYTOJYYWEQ2JONEW2WTTLFLWI6SJNJYDOSLNGF3FUSCWONNFQTLJJ5WHG2K2GI4TEWSYJJ2VSVZVNJNFGMLXMIZHQ4CZGNVWSTCDJJXGERZZNFMVO53UMRWWY6TBK5FHAYSHNQYGKUZRPFRDGVRQMFLTK3SMLBHGUWKXPBWES3BRHFTFCPJ5FZZDARTUORMVM4SLPB2XQ2DXKZJFGRTMIJEUG6CPGY2W25BQOFLGITDRORCEG3RPLIZU2TTMK5HUU2CCIZVTSWRXLEYVMMSXOBLCWVRYJZSDINKGG55EIK2ZG5KEI52ZGREUQUCCII2TCZCBNNRWCNDEKYYDGMZYKB3W2VTMMF3EUUBUOBFHQSKJHFCDMVKGJRKWCVSQNJVVOSTUMNCDM4DBNQ3G6T3GI5XEWMT2KBFUUUTNI5EFMM3FLJ3XCRTFFNXTO2ZPOMVUCVCONBIFUZ2TF5FVMWLHF5FSW3CHKB3UYN3KIJ4ESN2HJ5QWWNSVMFUWCSDPMVVTAUSUN43TERCRHU6Q
+EOF
+sudo chmod a+r /etc/consul.d/license.hclic
+
+# Create Consul log directory with proper permissions
+sudo mkdir -p /var/log/consul
+sudo chown consul:consul /var/log/consul
+sudo chmod 755 /var/log/consul
+
+# Create Consul client configuration
+cat << CONSULEOF | sudo tee /etc/consul.d/consul.hcl > /dev/null
+datacenter = "dc1"
+data_dir = "/opt/consul"
+log_level = "INFO"
+log_file = "/var/log/consul/"
+log_rotate_duration = "24h"
+log_rotate_max_files = 30
+server = false
+retry_join = ["${consul_address}"]
+bind_addr = "{{ GetPrivateIP }}"
+client_addr = "127.0.0.1"
+
+# Partition configuration - must match ESM partition
+partition = "global"
+
+# Gossip encryption - must match server configuration
+encrypt = "aPuGh+5UDskRAbkLaXRzFoSOcSM+5vAK+NEYOWHJH7w="
+
+# License configuration
+license_path = "/etc/consul.d/license.hclic"
+
+acl {
+  enabled = true
+  default_policy = "deny"
+  enable_token_persistence = true
+  tokens {
+    agent = "${consul_token}"
+    default = "${consul_token}"
+  }
+}
+
+ports {
+  grpc = 8502
+  http = 8500
+  dns = 8600
+}
+
+# Auto-config disabled for clients to avoid license fetch issues
+auto_config {
+  enabled = false
+}
+CONSULEOF
+
+# Configure systemd to not suppress Consul logs
+sudo mkdir -p /etc/systemd/system/consul.service.d
+sudo tee /etc/systemd/system/consul.service.d/override.conf > /dev/null <<CONSULOVERRIDEEOF
+[Service]
+StandardOutput=journal+console
+StandardError=journal+console
+SyslogIdentifier=consul
+CONSULOVERRIDEEOF
+
+# Start Consul client
+sudo systemctl daemon-reload
+sudo systemctl enable consul.service
+sudo systemctl start consul.service
+
+# Wait for Consul to be ready
+echo "Waiting for Consul client to be ready..."
+for i in {1..30}; do
+  if consul members &>/dev/null; then
+    echo "Consul client is ready"
+    break
+  fi
+  echo "Waiting for Consul... ($i/30)"
+  sleep 2
+done
 
 # Install Consul ESM
 wget https://releases.hashicorp.com/consul-esm/${esm_version}/consul-esm_${esm_version}_linux_amd64.zip
@@ -87,13 +176,14 @@ node_probe_interval = "${ping_interval}"
 # node_probe_interval = "10s"
 disable_coordinate_updates = false
 
-enable_agentless = true
+# Running in agentful mode - ESM will connect to local Consul client
+enable_agentless = false
 
 # Consul connection configuration
 
-# The address of the Consul server to use if enable_agentless is set to true.
+# The address of the local Consul client agent
 # Can also be provided through the CONSUL_HTTP_ADDR environment variable.
-http_addr = "${consul_address}:8500"
+http_addr = "127.0.0.1:8500"
 
 # The ACL token to use when communicating with the local Consul agent. Can
 # also be provided through the CONSUL_HTTP_TOKEN environment variable.
@@ -120,8 +210,8 @@ cat << EOF | sudo tee /etc/systemd/system/consul-esm.service > /dev/null
 [Unit]
 Description=Consul ESM (External Service Monitor)
 Documentation=https://github.com/hashicorp/consul-esm
-Requires=network-online.target
-After=network-online.target
+Requires=network-online.target consul.service
+After=network-online.target consul.service
 ConditionFileNotEmpty=/etc/consul-esm/config.hcl
 
 [Service]

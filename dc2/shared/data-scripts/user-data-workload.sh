@@ -78,10 +78,23 @@ module health-service
 go 1.21
 GO_MOD
 
-cd /opt/app
-
 # Build and start the Go application
+cd /opt/app
 /usr/local/go/bin/go build -o health-service main.go
-nohup ./health-service > /opt/app/health-service.log 2>&1 &
 
-echo "Started Go health service"
+# Ensure the binary is executable
+chmod +x health-service
+
+# Start the service in background
+nohup ./health-service > /opt/app/health-service.log 2>&1 &
+PID=$!
+
+# Wait a moment and verify it started
+sleep 2
+if kill -0 $PID 2>/dev/null; then
+    echo "Started Go health service with PID $PID"
+else
+    echo "Failed to start Go health service"
+    cat /opt/app/health-service.log
+    exit 1
+fi

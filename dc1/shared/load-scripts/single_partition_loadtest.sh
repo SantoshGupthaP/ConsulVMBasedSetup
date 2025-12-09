@@ -96,7 +96,7 @@ register_service() {
           "ServiceID": $svc_id,
           "Definition": {
             "HTTP": ("http://" + $target_ip + ":8080/health"),
-            "Interval": "30s", "Timeout": "5s", "DeregisterCriticalServiceAfter": "60m"
+            "Interval": "45s", "Timeout": "10s", "DeregisterCriticalServiceAfter": "90m"
           }
         }]
       }')

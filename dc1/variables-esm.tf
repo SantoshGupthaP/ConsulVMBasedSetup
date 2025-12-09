@@ -8,6 +8,7 @@ variable "esm_version" {
 variable "consul_esm_instance_type" {
   description = "EC2 instance type"
   default     = "m6i.4xlarge"
+  # default    = "m5.2xlarge"
 }
 
 variable "node_exporter_version" {
