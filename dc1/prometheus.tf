@@ -55,6 +55,14 @@ resource "aws_instance" "prometheus" {
   vpc_security_group_ids = [aws_security_group.consul_sg.id, aws_security_group.prometheus_sg.id]
   subnet_id              = module.vpc.public_subnets[0]
 
+  # Increase disk space to prevent running out of storage
+  root_block_device {
+    volume_size           = 30  # Increased from default 8GB to 30GB
+    volume_type           = "gp3"
+    delete_on_termination = true
+    encrypted             = true
+  }
+
   user_data = <<-EOF
     #!/bin/bash
     sudo apt-get update
@@ -169,7 +177,7 @@ resource "aws_instance" "prometheus" {
 
     [Service]
     User=root
-    ExecStart=/usr/local/bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/var/lib/prometheus
+    ExecStart=/usr/local/bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/var/lib/prometheus --storage.tsdb.retention.time=15d --storage.tsdb.retention.size=20GB
     Restart=always
 
     [Install]
