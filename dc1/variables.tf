@@ -9,6 +9,11 @@ variable "consul_instance_type" {
   default = "m5.2xlarge"
 }
 
+variable "workload_instance_type" {
+  description = "EC2 instance type for workload nodes"
+  default     = "m5.large"
+}
+
 variable "instance_type" {
   description = "EC2 instance type"
   default     = "m5.2xlarge"

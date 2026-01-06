@@ -128,7 +128,7 @@ end_index=$((START_INDEX + TOTAL_PARTITIONS - 1))
 created_count=0
 partition_name="global"
 
-for (( n=1; n<=10; n++ )); do
+for (( n=START_INDEX; n<START_INDEX+TOTAL_NAMESPACES; n++ )); do
       namespace_name="ns-${n}"
       if create_namespace "$partition_name" "$namespace_name"; then
         for (( s=1; s<=10; s++ )); do

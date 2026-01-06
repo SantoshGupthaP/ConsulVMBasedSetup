@@ -18,6 +18,11 @@ rm go.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 
+# Set required environment variables for Go build
+export HOME=/root
+export GOCACHE=/root/.cache/go-build
+export GOPATH=/root/go
+
 mkdir -p /opt/app
 
 cat << 'GO_SCRIPT' > /opt/app/main.go
@@ -69,23 +74,68 @@ module health-service
 go 1.21
 GO_MOD
 
-# Build and start the Go application
+# Build the Go application
 cd /opt/app
-/usr/local/go/bin/go build -o health-service main.go
+echo "Building Go application..."
+ls -la /opt/app/
+
+# Verify Go is installed
+/usr/local/go/bin/go version || {
+    echo "Go not found! Checking installation..."
+    ls -la /usr/local/go/bin/
+    exit 1
+}
+
+# Build with verbose output
+/usr/local/go/bin/go build -v -o health-service main.go || {
+    echo "Go build failed!"
+    exit 1
+}
+
+# Verify binary was created
+if [ ! -f /opt/app/health-service ]; then
+    echo "Binary not created!"
+    ls -la /opt/app/
+    exit 1
+fi
 
 # Ensure the binary is executable
 chmod +x health-service
+echo "Binary created successfully"
+ls -la /opt/app/health-service
 
-# Start the service in background
-nohup ./health-service > /opt/app/health-service.log 2>&1 &
-PID=$!
+# Create systemd service
+cat << 'SYSTEMD_SERVICE' | sudo tee /etc/systemd/system/health-service.service
+[Unit]
+Description=Health Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/app
+ExecStart=/opt/app/health-service
+Restart=always
+RestartSec=5
+StandardOutput=append:/opt/app/health-service.log
+StandardError=append:/opt/app/health-service.log
+
+[Install]
+WantedBy=multi-user.target
+SYSTEMD_SERVICE
+
+# Enable and start the service
+sudo systemctl daemon-reload
+sudo systemctl enable health-service
+sudo systemctl start health-service
 
 # Wait a moment and verify it started
 sleep 2
-if kill -0 $PID 2>/dev/null; then
-    echo "Started Go health service with PID $PID"
+if sudo systemctl is-active --quiet health-service; then
+    echo "Started Go health service via systemd"
+    sudo systemctl status health-service
 else
     echo "Failed to start Go health service"
-    cat /opt/app/health-service.log
-    exit 1
+    sudo systemctl status health-service
+    sudo journalctl -u health-service -n 50
 fi

@@ -40,9 +40,9 @@ resource "aws_security_group" "workload" {
 }
 
 resource "aws_instance" "workload" {
-  count                  = 6
+  count                  = 5
   ami                    = data.aws_ami.ubuntu.id
-  instance_type          = var.instance_type
+  instance_type          = var.workload_instance_type
   key_name               = aws_key_pair.minion-key.key_name
   subnet_id              = module.vpc.public_subnets[0]
   vpc_security_group_ids = [aws_security_group.workload.id]

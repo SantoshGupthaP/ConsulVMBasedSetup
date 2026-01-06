@@ -5,7 +5,7 @@ set -ex
 
 # Install necessary packages
 sudo apt-get update -y
-sudo apt-get install -y wget unzip jq
+sudo apt-get install -y wget unzip jq awscli
 
 # # Start SSM agent
 # systemctl enable amazon-ssm-agent
@@ -35,11 +35,13 @@ EOF
 systemctl enable node_exporter
 systemctl start node_exporter
 
-# Install Consul ESM
-wget https://releases.hashicorp.com/consul-esm/${esm_version}/consul-esm_${esm_version}_linux_amd64.zip
-unzip consul-esm_${esm_version}_linux_amd64.zip
-mv consul-esm /usr/local/bin/
-rm consul-esm_${esm_version}_linux_amd64.zip
+# Install Consul ESM (Custom Binary)
+# Option 1: Download from S3 (replace with your bucket/path)
+# aws s3 cp s3://consul-esm-scale-testing/consul-esm-linux2 /usr/local/bin/consul-esm --region ap-south-1
+aws s3 cp s3://consul-esm-scale-testing/consul-esm-kruti-patched-linux-amd64 /usr/local/bin/consul-esm --region ap-south-1
+
+# Make binary executable
+chmod +x /usr/local/bin/consul-esm
 
 # Create ESM config directory
 mkdir -p /etc/consul-esm

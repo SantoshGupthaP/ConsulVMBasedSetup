@@ -40,3 +40,9 @@ variable "subnet_ids" {
   type        = list(string)
   default     = []
 }
+
+variable "esm_instance_count" {
+  description = "Number of ESM instances to deploy"
+  type        = number
+  default     = 1
+}

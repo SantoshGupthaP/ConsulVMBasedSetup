@@ -41,6 +41,11 @@ ports {
     grpc_tls = 8502
 }
 
+limits {
+    rpc_max_conns_per_client = 300
+    http_max_conns_per_client = 600
+}
+
 connect {
     enabled = true
 }

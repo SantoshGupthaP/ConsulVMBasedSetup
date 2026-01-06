@@ -103,6 +103,29 @@ resource "aws_iam_role_policy" "ssm_parameters" {
   })
 }
 
+# Add IAM policy for S3 access to custom ESM binary
+resource "aws_iam_role_policy" "s3_esm_binary" {
+  name = "${local.name_prefix}-s3-esm-binary"
+  role = aws_iam_role.esm.name
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "s3:GetObject",
+          "s3:ListBucket"
+        ]
+        Resource = [
+          "arn:aws:s3:::consul-esm-scale-testing",
+          "arn:aws:s3:::consul-esm-scale-testing/*"
+        ]
+      }
+    ]
+  })
+}
+
 # Security group for ESM
 resource "aws_security_group" "esm" {
   name_prefix = "${local.name_prefix}-sg-singlepartitiontest30s"
@@ -207,7 +230,7 @@ resource "aws_ssm_parameter" "esm_config" {
 resource "aws_instance" "esm" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.consul_esm_instance_type
-  count                       = 3
+  count                       = var.esm_instance_count
   key_name                    = aws_key_pair.minion-key.key_name
   subnet_id                   = module.vpc.public_subnets[0]
   vpc_security_group_ids      = [aws_security_group.esm.id]

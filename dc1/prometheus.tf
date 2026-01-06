@@ -110,36 +110,18 @@ resource "aws_instance" "prometheus" {
           - targets: [
               "${aws_instance.consul[2].private_ip}:9100"
             ]
-      - job_name: 'Consul-ESM-Node'
+%{~ for idx in range(length(aws_instance.esm)) ~}
+      - job_name: 'Consul-ESM-Node${idx}'
         static_configs:
           - targets: [
-              "${aws_instance.esm[0].private_ip}:9100"
+              "${aws_instance.esm[idx].private_ip}:9100"
             ]
-      - job_name: 'Consul-ESM-Agent'
+      - job_name: 'Consul-ESM-Agent${idx}'
         static_configs:
           - targets: [
-              "${aws_instance.esm[0].private_ip}:8080"
+              "${aws_instance.esm[idx].private_ip}:8080"
             ]
-      - job_name: 'Consul-ESM-Node2'
-        static_configs:
-          - targets: [
-              "${aws_instance.esm[1].private_ip}:9100"
-            ]
-      - job_name: 'Consul-ESM-Agent2'
-        static_configs:
-          - targets: [
-              "${aws_instance.esm[1].private_ip}:8080"
-            ]
-      - job_name: 'Consul-ESM-Node3'
-        static_configs:
-          - targets: [
-              "${aws_instance.esm[2].private_ip}:9100"
-            ]
-      - job_name: 'Consul-ESM-Agent3'
-        static_configs:
-          - targets: [
-              "${aws_instance.esm[2].private_ip}:8080"
-            ]
+%{~ endfor ~}
       - job_name: 'Consul-Server0-Agent'
         metrics_path: /v1/agent/metrics
         params:

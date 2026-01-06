@@ -429,7 +429,7 @@ resource "null_resource" "install_promtail_consul" {
 
 # Install Promtail on ESM instances after Loki is ready
 resource "null_resource" "install_promtail_esm" {
-  count      = 3
+  count      = var.esm_instance_count
   depends_on = [aws_instance.esm, aws_instance.loki]
 
   triggers = {
