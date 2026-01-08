@@ -38,7 +38,7 @@ systemctl start node_exporter
 # Install Consul ESM (Custom Binary)
 # Option 1: Download from S3 (replace with your bucket/path)
 # aws s3 cp s3://consul-esm-scale-testing/consul-esm-linux2 /usr/local/bin/consul-esm --region ap-south-1
-aws s3 cp s3://consul-esm-scale-testing/consul-esm-kruti-patched-linux-amd64 /usr/local/bin/consul-esm --region ap-south-1
+aws s3 cp s3://consul-esm-scale-testing/consul-esm-shashank-7 /usr/local/bin/consul-esm --region ap-south-1
 
 # Make binary executable
 chmod +x /usr/local/bin/consul-esm

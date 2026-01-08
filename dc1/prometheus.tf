@@ -63,132 +63,20 @@ resource "aws_instance" "prometheus" {
     encrypted             = true
   }
 
-  user_data = <<-EOF
-    #!/bin/bash
-    sudo apt-get update
-    sudo apt-get install -y wget tar
-
-    # Install Prometheus
-    wget https://github.com/prometheus/prometheus/releases/download/v2.52.0/prometheus-2.52.0.linux-amd64.tar.gz
-    tar xvf prometheus-2.52.0.linux-amd64.tar.gz
-    sudo mv prometheus-2.52.0.linux-amd64/prometheus /usr/local/bin/
-    sudo mv prometheus-2.52.0.linux-amd64/promtool /usr/local/bin/
-    sudo mkdir -p /etc/prometheus /var/lib/prometheus
-    sudo mv prometheus-2.52.0.linux-amd64/consoles /etc/prometheus/
-    sudo mv prometheus-2.52.0.linux-amd64/console_libraries /etc/prometheus/
-
-    # Install Consul Exporter
-    # wget https://github.com/prometheus-community/consul_exporter/releases/download/v0.11.0/consul_exporter-0.11.0.linux-amd64.tar.gz
-    wget https://github.com/prometheus/consul_exporter/releases/download/v0.11.0/consul_exporter-0.11.0.linux-amd64.tar.gz
-    tar xvf consul_exporter-0.11.0.linux-amd64.tar.gz
-    sudo mv consul_exporter-0.11.0.linux-amd64/consul_exporter /usr/local/bin/
-
-    # Create Prometheus config
-    cat <<EOC | sudo tee /etc/prometheus/prometheus.yml
-    global:
-      scrape_interval: 15s
-
-    scrape_configs:
-      - job_name: 'Consul'
-        static_configs:
-          - targets: ['localhost:9107']
-      - job_name: 'Consul-Server0-Node'
-        # scrape_offset: 0s, use rule_query_offset instead
-        static_configs:
-          - targets: [
-              "${aws_instance.consul[0].private_ip}:9100"
-            ]
-      - job_name: 'Consul-Server1-Node'
-        # scrape_offset: 5s
-        static_configs:
-          - targets: [
-              "${aws_instance.consul[1].private_ip}:9100"
-            ]
-      - job_name: 'Consul-Server2-Node'
-        # scrape_offset: 10s
-        static_configs:
-          - targets: [
-              "${aws_instance.consul[2].private_ip}:9100"
-            ]
-%{~ for idx in range(length(aws_instance.esm)) ~}
-      - job_name: 'Consul-ESM-Node${idx}'
-        static_configs:
-          - targets: [
-              "${aws_instance.esm[idx].private_ip}:9100"
-            ]
-      - job_name: 'Consul-ESM-Agent${idx}'
-        static_configs:
-          - targets: [
-              "${aws_instance.esm[idx].private_ip}:8080"
-            ]
-%{~ endfor ~}
-      - job_name: 'Consul-Server0-Agent'
-        metrics_path: /v1/agent/metrics
-        params:
-          format: ['prometheus']
-        bearer_token: 'e95b599e-166e-7d80-08ad-aee76e7ddf19'
-        static_configs:
-          - targets: [
-              "${aws_instance.consul[0].private_ip}:8500"
-            ]
-      - job_name: 'Consul-Server1-Agent'
-        metrics_path: /v1/agent/metrics
-        params:
-          format: ['prometheus']
-        bearer_token: 'e95b599e-166e-7d80-08ad-aee76e7ddf19'
-        static_configs:
-          - targets: [
-              "${aws_instance.consul[1].private_ip}:8500"
-            ]
-      - job_name: 'Consul-Server2-Agent'
-        metrics_path: /v1/agent/metrics
-        params:
-          format: ['prometheus']
-        bearer_token: 'e95b599e-166e-7d80-08ad-aee76e7ddf19'
-        static_configs:
-          - targets: [
-              "${aws_instance.consul[2].private_ip}:8500"
-            ]
-    EOC
-
-    # Create systemd service for Prometheus
-    cat <<EOP | sudo tee /etc/systemd/system/prometheus.service
-    [Unit]
-    Description=Prometheus
-    After=network.target
-
-    [Service]
-    User=root
-    ExecStart=/usr/local/bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/var/lib/prometheus --storage.tsdb.retention.time=15d --storage.tsdb.retention.size=20GB
-    Restart=always
-
-    [Install]
-    WantedBy=multi-user.target
-    EOP
-
-    # Create systemd service for Consul Exporter
-    cat <<EOE | sudo tee /etc/systemd/system/consul_exporter.service
-    [Unit]
-    Description=Consul Exporter
-    After=network.target
-
-    [Service]
-    User=root
-    # Add the token as an environment variable
-    Environment="CONSUL_HTTP_TOKEN=e95b599e-166e-7d80-08ad-aee76e7ddf19"
-    ExecStart=/usr/local/bin/consul_exporter --consul.server=http://${aws_instance.consul[0].private_ip}:8500
-    Restart=always
-
-    [Install]
-    WantedBy=multi-user.target
-    EOE
-
-    sudo systemctl daemon-reload
-    sudo systemctl enable prometheus
-    sudo systemctl start prometheus
-    sudo systemctl enable consul_exporter
-    sudo systemctl start consul_exporter
-  EOF
+  user_data = templatefile("${path.module}/shared/data-scripts/user-data-prometheus.sh.tpl", {
+    consul_server_0_ip = aws_instance.consul[0].private_ip
+    consul_server_1_ip = aws_instance.consul[1].private_ip
+    consul_server_2_ip = aws_instance.consul[2].private_ip
+    consul_token       = var.consul_token
+    esm_node_configs = join("", [
+      for idx in range(length(aws_instance.esm)) :
+      "  - job_name: 'Consul-ESM-Node${idx}'\n    static_configs:\n      - targets: ['${aws_instance.esm[idx].private_ip}:9100']\n"
+    ])
+    esm_agent_configs = join("", [
+      for idx in range(length(aws_instance.esm)) :
+      "  - job_name: 'Consul-ESM-Agent${idx}'\n    static_configs:\n      - targets: ['${aws_instance.esm[idx].private_ip}:8080']\n"
+    ])
+  })
 }
 
 // ...existing code...
